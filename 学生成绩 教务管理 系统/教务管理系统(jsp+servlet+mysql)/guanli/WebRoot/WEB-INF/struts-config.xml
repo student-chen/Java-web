@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+    
+    <form-beans>
+		<form-bean name="userForm" type="com.bjsxt.drp.web.usermgr.forms.UserActionForm" />
+		<form-bean name="fileForm" type="com.bjsxt.drp.web.usermgr.forms.UploadActionForm" />
+    </form-beans>
+    
+    <action-mappings>
+        
+        
+        <action path="/login"
+                type="com.bjsxt.drp.web.usermgr.actions.LoginAction"
+                name="userForm"
+                scope="request"
+        >
+        <forward name="success" path="/Admin.jsp" />
+        <forward name="error" path="/showLoginMess.jsp"></forward>
+        </action> 
+  
+		<action 
+			path="/user/add"
+			type="com.bjsxt.drp.web.usermgr.actions.AddUserAction"
+			name="userForm"
+			scope="request"
+		>
+			<forward name="success" path="/user/list.do" redirect="true"></forward>
+		</action>
+		
+		<action 
+			path="/user/del"
+			type="com.bjsxt.drp.web.usermgr.actions.DelUserAction"
+			name="userForm"
+			scope="request"
+		>
+			<forward name="success" path="/user/list.do" redirect="true"></forward>
+		</action>
+	
+		<action 
+			path="/user/list"
+			type="com.bjsxt.drp.web.usermgr.actions.ListUserAction"
+			name="userForm"
+			scope="request"
+		>
+			<forward name="success" path="/user/user_list.jsp"></forward>
+		</action>
+		
+		<action 
+			path="/user/find"
+			type="com.bjsxt.drp.web.usermgr.actions.FindUserAction"
+			name="userForm"
+			scope="request"
+		>
+			<forward name="success" path="/user/user_modify.jsp"></forward>
+		</action>
+
+		<action 
+			path="/user/modify"
+			type="com.bjsxt.drp.web.usermgr.actions.ModifyUserAction"
+			name="userForm"
+			scope="request"
+		>
+			<forward name="success" path="/user/list.do" redirect="true"></forward>
+		</action>
+
+        <action path="/file/upload"
+                type="com.bjsxt.drp.web.usermgr.actions.FileUploadAction"
+                name="fileForm"
+                scope="request"
+        >
+          <forward name="success" path="/file/list.do" redirect="true" />
+        </action>
+ 
+        <action path="/file/list"
+                type="com.bjsxt.drp.web.usermgr.actions.ListFileAction"
+                name="fileForm"
+                scope="request"
+        >
+          <forward name="success" path="/file/file_list.jsp" />
+        </action>
+
+        <action path="/file/del"
+                type="com.bjsxt.drp.web.usermgr.actions.DelFileAction"
+                name="fileForm"
+                scope="request"
+        >
+         <forward name="success" path="/file/list.do" />
+        </action>
+
+    </action-mappings>
+
+    
+    <message-resources parameter="MessageResources" />
+    
+</struts-config>

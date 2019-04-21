@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.svse.dao.GwDAOI">
+	<!-- 添加 -->
+	<insert id="add" parameterType="GwEntity">
+		insert into t_gw values(null,#{gname},#{pid},#{gremark})
+	</insert>
+	<!-- 修改 -->
+	<update id="upp" parameterType="GwEntity">
+		update t_gw set g_name=#{gname},g_remark=#{gremark},p_id=#{pid} where g_id=#{gid} 
+	</update>
+	<!-- 全查询 -->
+	<select id="all"  resultMap="GwMap">
+      	select * from t_gw g, t_part p where p.p_id=g.p_id
+	</select>
+	<resultMap type="GwEntity" id="GwMap">
+		<id column="g_id" property="gid"/>
+		<result column="g_name" property="gname" />
+		<result column="g_remark" property="gremark" />
+		<association property="dept" column="p_id" javaType="DeptEntity">
+			<id column="p_id" property="pid"/>
+			<result column="zjmc" property="zjmc"/>
+			<result column="zjid" property="zjid"/>
+		</association>
+	</resultMap>
+	
+	<select id="alldept" parameterType="int" resultType="GwEntity">
+      	select g_id gid,g_name gname from t_gw g, t_part p where p.p_id=g.p_id and g.p_id=#{pid}
+	</select>
+	<!-- 查询单个 -->
+	<select id="one" parameterType="int" resultMap="GwMap">
+		select * from t_gw where g_id=#{gid}
+	</select>
+	<!-- 判断重复 -->
+	<select id="repeat" parameterType="GwEntity" resultType="int">
+		select count(*) from t_gw where g_name=#{gname} and p_id=#{pid}
+	</select>
+
+</mapper>

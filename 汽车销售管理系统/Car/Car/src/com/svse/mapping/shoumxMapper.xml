@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.svse.dao.ShoumxDAOI">
+	<!-- 添加 -->
+	<insert id="add" parameterType="ShoumxEntity">
+		insert into t_shouhoumx values(null,#{shouhouid},#{fwnr},#{shouhouflag},#{shmoney},#{shtime},#{mid})
+	</insert>
+	
+	<!-- 修改 -->
+	<update id="upp" parameterType="ShoumxEntity">
+		update t_shouhoumx set shouhouid=#{shouhouid},fwnr=#{fwnr},shouhouflag=#{shouhouflag}
+			,shmoney=#{shmoney},shtime=#{shtime},mid=#{mid} where shouhoumxid=#{shouhoumxid}
+	</update>
+	
+	<!-- 全查询 -->
+	<select id="all"  resultType="ShoumxEntity">
+      	select * from t_shouhoumx 
+	</select>
+	
+	<!-- 分页查询 -->
+	<select id="all1"  resultType="ShoumxEntity">
+      	select * from t_shouhoumx s,t_shouhou sh,t_master m,t_custom c where c.customid=sh.customid and s.shouhouid=sh.shouhouid and s.mid=m.mid and s.shouhouid=#{2} limit #{0},#{1}
+	</select>
+	
+	<!-- 查询单个 -->
+	<select id="one" parameterType="int" resultType="ShoumxEntity">
+		select * from t_shouhoumx where shouhoumxid=#{shouhoumxid}
+	</select>
+	
+	<!-- 所有记录 -->
+	<select id="count" resultType="int">
+		select count(*) from t_shouhoumx where shouhouid=#{0}
+	</select>
+	
+</mapper>

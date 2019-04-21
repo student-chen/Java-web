@@ -1,0 +1,46 @@
+/*!
+
+ @Name: layer's style
+ @Author: 清风醉
+
+ */
+html #layui_layer_skinyistylecss{display:none; position: absolute; width:1989px;}
+@keyframes bounceIn {
+0% {
+    opacity: 0;
+    transform: scale(0.5);
+}
+100% {
+    opacity: 1;
+    transform: scale(1);
+}
+}
+@keyframes shake {
+0%, 100% {
+    transform: translateX(0px);
+}
+10%, 30%, 50%, 70%, 90% {
+    transform: translateX(-10px);
+}
+20%, 40%, 60%, 80% {
+    transform: translateX(10px);
+}
+}
+body .layui-layer{background-color: #34495e;color:#fff;border-radius:10px;}
+body .layer-ext-yi .layui-layer-title{background-color:#1abc9c;color:#fff;border-bottom:none;}
+body .layer-ext-yi .layui-layer-setwin{color:#fff;}
+body .layui-layer-btn .layui-layer-btn0 {background-color:#1abc9c;border-radius:5px;}
+body .layui-layer-btn .layui-layer-btn1 {background-color:#fff;border-radius:5px;color:#34495e;}
+body .layer-ext-yi-msg .layui-layer-content{text-align:center;}
+body .layui-layer-ico{background:rgba(0, 0, 0, 0) url("icon.png") no-repeat scroll 0 0;}
+body .layer-ext-yi .layui-layer-content .layui-layer-ico6{background-position:-180px 0;}
+body .layer-ext-yi .layui-layer-content .layui-layer-ico5{background-position:-150px 0;}
+body .layer-ext-yi .layui-layer-content .layui-layer-ico4{background-position:-120px 0;}
+body .layer-ext-yi .layui-layer-content .layui-layer-ico3{background-position:-90px 0;}
+body .layer-ext-yi .layui-layer-content .layui-layer-ico2{background-position:-60px 0;}
+body .layer-ext-yi .layui-layer-content .layui-layer-ico1{background-position:-30px 0;}
+body .layer-ext-yi-msg{width:204px;min-width:204px;}
+body .layui-layer-border{border:none;}
+body .layer-anim-shake{animation-name:shake;opacity: 0.7;}
+body .layer-anim-shake .layui-layer-content{text-align:center;}
+body .layui-layer-prompt .layui-layer-title{background-color:#1abc9c;border-bottom:none;color:#fff;}

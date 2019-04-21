@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.svse.dao.MasterADAOI">
+	<!-- 添加 -->
+	<insert id="add" parameterType="MasterAEntity">
+		insert into t_masterg values(null,#{mid},#{groupid})
+	</insert>
+	<!-- 修改 -->
+	<update id="upp" parameterType="MasterAEntity">
+		update t_masterg set mid=#{mid},groupid=#{groupid} where mgroupid=#{mastergid} 
+	</update>
+	<!-- 删除 -->
+	<delete id="del" parameterType="int">
+		delete from t_masterg where mgroupid=#{actiongroupid}
+	</delete>
+	<!-- 全查询 -->
+	<select id="all"  resultType="MasterAEntity">
+      	select * from t_masterg
+	</select>
+	
+	<select id="allmg"  resultType="MasterAEntity">
+      	select * from t_masterg where mid=#{0} and groupid=#{1}
+	</select>
+	
+	<select id="allMasterA"  resultType="MasterAEntity">
+      	select * from t_masterg limit #{0},#{1}
+	</select>
+
+	<!-- 所有记录 -->
+	<select id="count" resultType="int">
+		select count(*) from t_masterg
+	</select>
+</mapper>

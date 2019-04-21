@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.svse.dao.ShouDAOI">
+	<!-- 添加 -->
+	<insert id="add" parameterType="ShouEntity">
+		insert into t_shouhou values(null,#{customid})
+	</insert>
+	
+	<!-- 修改 -->
+	<update id="upp" parameterType="ShouEntity">
+		update t_shouhou set customid=#{customid} where shouhouid=#{shouhouid}
+	</update>
+	
+	<!-- 全查询 -->
+	<select id="all"  resultType="ShouEntity">
+      	select * from t_shouhou 
+	</select>
+	
+	<!-- 分页查询 -->
+	<select id="all1"  resultType="ShouEntity">
+      	select * from t_shouhou s,t_custom c,t_master m where c.customid=s.customid and m.mid=c.mid and c.mid=#{2} limit #{0},#{1}
+	</select>
+	<select id="all2"  resultType="ShouEntity">
+      	select * from t_shouhou s,t_custom c,t_master m where c.customid=s.customid and m.mid=c.mid limit #{0},#{1}
+	</select>
+	
+	<!-- 查询单个 -->
+	<select id="one" parameterType="int" resultType="ShouEntity">
+		select * from t_shouhou where shouhouid=#{shouhouid}
+	</select>
+	
+	<!-- 所有记录 -->
+	<select id="count" resultType="int">
+		select count(*) from t_shouhou s,t_custom c,t_master m where c.customid=s.customid and m.mid=c.mid and c.mid=#{0}
+	</select>
+	<select id="counts" resultType="int">
+		select count(*) from t_shouhou s,t_custom c,t_master m where c.customid=s.customid and m.mid=c.mid 
+	</select>
+</mapper>

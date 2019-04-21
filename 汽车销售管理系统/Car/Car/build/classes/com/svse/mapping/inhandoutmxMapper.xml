@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.svse.dao.InhandoutmxDAOI">
+	<!-- 添加 -->
+	<insert id="add" parameterType="InhandoutmxEntity">
+		insert into t_inhandoutmx values(null,#{inhandoutid},#{handoutid},#{storeid},#{handoutcolor},
+			#{handoutsize},#{handoutimg},#{inhandoutnum},#{handouttime},#{handoutremark},#{pid},#{mid})
+	</insert>
+	<!-- 修改 -->
+	<update id="upp" parameterType="InhandoutmxEntity">
+		update t_inhandoutmx set inhandoutid=#{inhandoutid},handoutid=#{handoutid},storeid=#{storeid} 
+			,handoutcolor=#{handoutcolor},handoutsize=#{handoutsize},handoutimg=#{handoutimg} 
+			,inhandoutnum=#{inhandoutnum},handouttime=#{handouttime},handoutremark=#{handoutremark} 
+			where inhandoutmxid=#{inhandoutmxid} 
+	</update>
+	
+	<!-- 全查询 -->
+	<select id="all"  resultType="InhandoutmxEntity">
+      	select * from t_inhandoutmx 
+	</select>
+	
+	<select id="all2"  resultType="InhandoutmxEntity">
+      	select * from t_inhandoutmx where inhandoutid=#{0} 
+	</select>
+	
+	<select id="all1"  resultType="InhandoutmxEntity">
+      	select * from t_inhandoutmx mx,t_inhandout ih ,t_handout h,t_part p,t_master m,t_storehouse s 
+      		where mx.inhandoutid=ih.inhandoutid and mx.handoutid=h.handoutid and mx.pid=p.p_id and mx.mid=m.mid 
+      			and mx.storeid=s.storeid and mx.inhandoutid=#{2} limit #{0},#{1}
+	</select>
+	
+	<!-- 查询单个 -->
+	<select id="one" parameterType="int" resultType="InhandoutmxEntity">
+		select * from t_inhandoutmx where inhandoutmxid=#{inhandoutmxid}
+	</select>
+	
+	<!-- 所有记录 -->
+	<select id="count" resultType="int">
+		select count(*) from t_inhandoutmx where inhandoutid=#{0}
+	</select>
+	
+	<!-- 目前库存量 -->
+	<select id="getnow" resultType="Integer"> 
+		select  inhandoutcount from t_inhandout where inhandoutid=#{0}
+	</select>
+	<!-- 总库存量 -->
+	<select id="getzong" resultType="Integer">
+		select sum(inhandoutnum) from t_inhandoutmx where inhandoutid=#{0}
+	</select>
+	<!-- 赠送库存量 -->
+	<select id="getfui" resultType="Integer">
+		select sum(zscount) from t_fujian where inhandoutid=#{0}
+	</select>
+	<!-- 出卖库存量 -->
+	<select id="getbuy" resultType="Integer">
+		select sum(salecount) from t_salezengpin where inhandoutid=#{0}
+	</select>
+</mapper>

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee   http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+ <filter>
+  <display-name>encoding</display-name>
+  <filter-name>encoding</filter-name>
+  <filter-class>msc.util.EncodingFilter</filter-class>
+ </filter>
+ <filter-mapping>
+ <filter-name>encoding</filter-name>
+ <url-pattern>/*</url-pattern>
+ </filter-mapping>
+ 
+ 
+ <servlet>
+  <description>This is the description of my J2EE component</description>
+  <display-name>This is the display name of my J2EE component</display-name>
+  <servlet-name>jxl_slt</servlet-name>
+  <servlet-class>msc.slt.jxl_slt</servlet-class>
+ </servlet>
+ <servlet>
+  <description>This is the description of my J2EE component</description>
+  <display-name>This is the display name of my J2EE component</display-name>
+  <servlet-name>course_slt</servlet-name>
+  <servlet-class>msc.slt.course_slt</servlet-class>
+ </servlet>
+ <servlet>
+  <description>This is the description of my J2EE component</description>
+  <display-name>This is the display name of my J2EE component</display-name>
+  <servlet-name>login_conf</servlet-name>
+  <servlet-class>msc.slt.login_conf</servlet-class>
+ </servlet>
+ <servlet>
+  <description>This is the description of my J2EE component</description>
+  <display-name>This is the display name of my J2EE component</display-name>
+  <servlet-name>menu_slt</servlet-name>
+  <servlet-class>msc.slt.menu_slt</servlet-class>
+ </servlet>
+ <servlet>
+  <description>This is the description of my J2EE component</description>
+  <display-name>This is the display name of my J2EE component</display-name>
+  <servlet-name>msc_slt</servlet-name>
+  <servlet-class>msc.slt.msc_slt</servlet-class>
+ </servlet>
+ <servlet>
+  <description>This is the description of my J2EE component</description>
+  <display-name>This is the display name of my J2EE component</display-name>
+  <servlet-name>sc_slt</servlet-name>
+  <servlet-class>msc.slt.sc_slt</servlet-class>
+ </servlet>
+ <servlet>
+  <description>This is the description of my J2EE component</description>
+  <display-name>This is the display name of my J2EE component</display-name>
+  <servlet-name>student_slt</servlet-name>
+  <servlet-class>msc.slt.student_slt</servlet-class>
+ </servlet>
+ <servlet>
+  <description>This is the description of my J2EE component</description>
+  <display-name>This is the display name of my J2EE component</display-name>
+  <servlet-name>tc_slt</servlet-name>
+  <servlet-class>msc.slt.tc_slt</servlet-class>
+ </servlet>
+ <servlet>
+  <description>This is the description of my J2EE component</description>
+  <display-name>This is the display name of my J2EE component</display-name>
+  <servlet-name>teacher_slt</servlet-name>
+  <servlet-class>msc.slt.teacher_slt</servlet-class>
+ </servlet>
+ <servlet>
+  <description>This is the description of my J2EE component</description>
+  <display-name>This is the display name of my J2EE component</display-name>
+  <servlet-name>msg_slt</servlet-name>
+  <servlet-class>msc.slt.msg_slt</servlet-class>
+ </servlet>
+ <servlet-mapping>
+  <servlet-name>jxl_slt</servlet-name>
+  <url-pattern>/jxl_slt</url-pattern>
+ </servlet-mapping>
+ <servlet-mapping>
+  <servlet-name>course_slt</servlet-name>
+  <url-pattern>/course_slt</url-pattern>
+ </servlet-mapping>
+ <servlet-mapping>
+  <servlet-name>login_conf</servlet-name>
+  <url-pattern>/login_conf</url-pattern>
+ </servlet-mapping>
+ <servlet-mapping>
+  <servlet-name>menu_slt</servlet-name>
+  <url-pattern>/menu_slt</url-pattern>
+ </servlet-mapping>
+ <servlet-mapping>
+  <servlet-name>msc_slt</servlet-name>
+  <url-pattern>/msc_slt</url-pattern>
+ </servlet-mapping>
+ <servlet-mapping>
+  <servlet-name>sc_slt</servlet-name>
+  <url-pattern>/sc_slt</url-pattern>
+ </servlet-mapping>
+ <servlet-mapping>
+  <servlet-name>student_slt</servlet-name>
+  <url-pattern>/student_slt</url-pattern>
+ </servlet-mapping>
+ <servlet-mapping>
+  <servlet-name>tc_slt</servlet-name>
+  <url-pattern>/tc_slt</url-pattern>
+ </servlet-mapping>
+ <servlet-mapping>
+  <servlet-name>teacher_slt</servlet-name>
+  <url-pattern>/teacher_slt</url-pattern>
+ </servlet-mapping>
+ <servlet-mapping>
+  <servlet-name>msg_slt</servlet-name>
+  <url-pattern>/msg_slt</url-pattern>
+ </servlet-mapping>
+ <welcome-file-list>
+  <welcome-file>index.jsp</welcome-file>
+ </welcome-file-list>
+ <login-config>
+  <auth-method>BASIC</auth-method>
+ </login-config>
+</web-app>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.svse.dao.InhandoutDAOI">
+	<!-- 添加 -->
+	<insert id="add" parameterType="InhandoutEntity">
+		insert into t_inhandout values(null,#{handoutid},#{inhandoutcount},#{inhandoutflag})
+	</insert>
+	<!-- 修改 -->
+	<update id="upp" parameterType="InhandoutEntity">
+		update t_inhandout set handoutid=#{handoutid},inhandoutcount=#{inhandoutcount},inhandoutflag=#{inhandoutflag} where inhandoutid=#{inhandoutid} 
+	</update>
+	<!-- 全查询 -->
+	<select id="all"  resultType="InhandoutEntity">
+      	select * from t_inhandout 
+	</select>
+	<select id="alls"  resultType="InhandoutEntity">
+      	select * from t_inhandout ih ,t_handout h where ih.handoutid=h.handoutid and inhandoutflag=1
+	</select>
+	<select id="all1"  resultType="InhandoutEntity">
+      	select * from t_inhandout ih ,t_handout h where ih.handoutid=h.handoutid limit #{0},#{1}
+	</select>
+	
+	<!-- 查询单个 -->
+	<select id="one" parameterType="int" resultType="InhandoutEntity">
+		select * from t_inhandout where inhandoutid=#{inhandoutid}
+	</select>
+	
+	<!-- 所有记录 -->
+	<select id="count" resultType="int">
+		select count(*) from t_inhandout
+	</select>
+	
+	<!-- 查询赠品 -->
+	<select id="allh" resultType="HandoutEntity">
+		select handoutid,handoutname from t_handout where handoutflag=1 and handoutid NOT IN 
+			(select h.handoutid from t_handout h ,t_inhandout ih where h.handoutid=ih.handoutid)
+	</select>
+	
+	<!-- 得到ID -->
+	<select id="getid" resultType="int">
+		select inhandoutid from t_inhandout order by inhandoutid desc limit 1
+	</select>
+</mapper>

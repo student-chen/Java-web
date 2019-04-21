@@ -1,0 +1,494 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+	<display-name></display-name>
+	<!-- 乱码过滤器 -->
+	<filter>
+		<filter-name>encodingFilter</filter-name>
+		<filter-class>filter.EncodingFilter</filter-class>
+		<init-param>
+			<param-name>Encoding</param-name>
+			<param-value>utf-8</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>encodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<!-- 登录验证过滤器 -->
+	 <filter>
+  		<filter-name>login</filter-name>
+  		<filter-class>filter.LoginFilter</filter-class>
+ 	</filter>
+ 	<filter-mapping>
+  		<filter-name>login</filter-name>
+ 		 <url-pattern>*.jsp</url-pattern>
+	</filter-mapping>
+ 
+	<!-- 管理员功能 -->
+	<!-- 登录配置 -->
+	<servlet>
+		<servlet-name>ServletLogin</servlet-name>
+		<servlet-class>servlet.ServletLogin</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ServletLogin</servlet-name>
+		<url-pattern>/ServletLogin</url-pattern>
+	</servlet-mapping>
+	<!-- 查询密码 -->
+	<servlet>
+		<servlet-name>ServletPwd</servlet-name>
+		<servlet-class>servlet.ServletPwd</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ServletPwd</servlet-name>
+		<url-pattern>/ServletPwd</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>ServletselectPwd</servlet-name>
+		<servlet-class>servlet.ServletselectPwd</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ServletselectPwd</servlet-name>
+		<url-pattern>/ServletselectPwd</url-pattern>
+	</servlet-mapping>
+	<!-- 修改密码 -->
+	<servlet>
+		<servlet-name>ServletEditPwd</servlet-name>
+		<servlet-class>servlet.ServletEditPwd</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ServletEditPwd</servlet-name>
+		<url-pattern>/ServletEditPwd</url-pattern>
+	</servlet-mapping>
+	<!-- 查询信息 -->
+	<servlet>
+		<servlet-name>ServletInfo</servlet-name>
+		<servlet-class>servlet.ServletInfo</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ServletInfo</servlet-name>
+		<url-pattern>/ServletInfo</url-pattern>
+	</servlet-mapping>
+	<!-- 添加学生信息 -->
+	<servlet>
+		<servlet-name>ServletaddStudent</servlet-name>
+		<servlet-class>servlet.ServletaddStudent</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ServletaddStudent</servlet-name>
+		<url-pattern>/ServletaddStudent</url-pattern>
+	</servlet-mapping>
+	<!-- 查询所有学生信息 -->
+	<servlet>
+		<servlet-name>ServletFindAllStu</servlet-name>
+		<servlet-class>servlet.ServletFindAllStu</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ServletFindAllStu</servlet-name>
+		<url-pattern>/ServletFindAllStu</url-pattern>
+	</servlet-mapping>
+	<!-- 删除学生信息 -->
+	<servlet>
+		<servlet-name>ServletDeleteStu</servlet-name>
+		<servlet-class>servlet.ServletDeleteStu</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ServletDeleteStu</servlet-name>
+		<url-pattern>/ServletDeleteStu</url-pattern>
+	</servlet-mapping>
+	<!-- 查询一个学生信息 -->
+	<servlet>
+		<servlet-name>ServletSelectStu</servlet-name>
+		<servlet-class>servlet.ServletSelectStu</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ServletSelectStu</servlet-name>
+		<url-pattern>/ServletSelectStu</url-pattern>
+	</servlet-mapping>
+	<!-- 修改学生信息 -->
+	<servlet>
+		<servlet-name>ServletEditStu</servlet-name>
+		<servlet-class>servlet.ServletEditStu</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ServletEditStu</servlet-name>
+		<url-pattern>/ServletEditStu</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 添加教师信息 -->
+	<servlet>
+		<servlet-name>ServletaddTeacher</servlet-name>
+		<servlet-class>servlet.ServletaddTeacher</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ServletaddTeacher</servlet-name>
+		<url-pattern>/ServletaddTeacher</url-pattern>
+	</servlet-mapping>
+	<!-- 查询所有教师信息 -->
+	<servlet>
+		<servlet-name>ServletFindAllTea</servlet-name>
+		<servlet-class>servlet.ServletFindAllTea</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ServletFindAllTea</servlet-name>
+		<url-pattern>/ServletFindAllTea</url-pattern>
+	</servlet-mapping>
+	<!-- 删除教师信息 -->
+	<servlet>
+		<servlet-name>ServletDeleteTea</servlet-name>
+		<servlet-class>servlet.ServletDeleteTea</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ServletDeleteTea</servlet-name>
+		<url-pattern>/ServletDeleteTea</url-pattern>
+	</servlet-mapping>
+	<!-- 查询一个教师信息 -->
+	<servlet>
+		<servlet-name>ServletSelectTea</servlet-name>
+		<servlet-class>servlet.ServletSelectTea</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ServletSelectTea</servlet-name>
+		<url-pattern>/ServletSelectTea</url-pattern>
+	</servlet-mapping>
+	<!-- 修改教师信息 -->
+	<servlet>
+		<servlet-name>ServletEditTea</servlet-name>
+		<servlet-class>servlet.ServletEditTea</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ServletEditTea</servlet-name>
+		<url-pattern>/ServletEditTea</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 添加课程信息 -->
+	<servlet>
+		<servlet-name>ServletaddCourse</servlet-name>
+		<servlet-class>servlet.ServletaddCourse</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ServletaddCourse</servlet-name>
+		<url-pattern>/ServletaddCourse</url-pattern>
+	</servlet-mapping>
+	<!-- 查询所有课程信息 -->
+	<servlet>
+		<servlet-name>ServletFindAllCos</servlet-name>
+		<servlet-class>servlet.ServletFindAllCos</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ServletFindAllCos</servlet-name>
+		<url-pattern>/ServletFindAllCos</url-pattern>
+	</servlet-mapping>
+	<!-- 删除课程信息 -->
+	<servlet>
+		<servlet-name>ServletDeleteCos</servlet-name>
+		<servlet-class>servlet.ServletDeleteCos</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ServletDeleteCos</servlet-name>
+		<url-pattern>/ServletDeleteCos</url-pattern>
+	</servlet-mapping>
+	<!-- 查询一个课程信息 -->
+	<servlet>
+		<servlet-name>ServletSelectCos</servlet-name>
+		<servlet-class>servlet.ServletSelectCos</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ServletSelectCos</servlet-name>
+		<url-pattern>/ServletSelectCos</url-pattern>
+	</servlet-mapping>
+	<!-- 修改课程信息 -->
+	<servlet>
+		<servlet-name>ServletEditCos</servlet-name>
+		<servlet-class>servlet.ServletEditCos</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ServletEditCos</servlet-name>
+		<url-pattern>/ServletEditCos</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 添加成绩 -->
+	<servlet>
+		<servlet-name>ServletaddScore</servlet-name>
+		<servlet-class>servlet.ServletaddScore</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ServletaddScore</servlet-name>
+		<url-pattern>/ServletaddScore</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>ServletFindStu</servlet-name>
+		<servlet-class>servlet.ServletFindStu</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ServletFindStu</servlet-name>
+		<url-pattern>/ServletFindStu</url-pattern>
+	</servlet-mapping>
+	<!-- 查询所有成绩 -->
+	<servlet>
+		<servlet-name>ServletFindAllScore</servlet-name>
+		<servlet-class>servlet.ServletFindAllScore</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ServletFindAllScore</servlet-name>
+		<url-pattern>/ServletFindAllScore</url-pattern>
+	</servlet-mapping>
+	<!-- 删除成绩 -->
+	<servlet>
+		<servlet-name>ServletDeleteScore</servlet-name>
+		<servlet-class>servlet.ServletDeleteScore</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ServletDeleteScore</servlet-name>
+		<url-pattern>/ServletDeleteScore</url-pattern>
+	</servlet-mapping>
+	<!-- 查询一个学生一门成绩 -->
+	<servlet>
+		<servlet-name>ServletSelectScore</servlet-name>
+		<servlet-class>servlet.ServletSelectScore</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ServletSelectScore</servlet-name>
+		<url-pattern>/ServletSelectScore</url-pattern>
+	</servlet-mapping>
+	<!-- 修改成绩 -->
+	<servlet>
+		<servlet-name>ServletEditScore</servlet-name>
+		<servlet-class>servlet.ServletEditScore</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ServletEditScore</servlet-name>
+		<url-pattern>/ServletEditScore</url-pattern>
+	</servlet-mapping>
+	<!-- 模糊查询学生成绩 -->
+	<servlet>
+		<servlet-name>ServletSearchScore</servlet-name>
+		<servlet-class>servlet.ServletSearchScore</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ServletSearchScore</servlet-name>
+		<url-pattern>/ServletSearchScore</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 查询所有账号 -->
+	<servlet>
+		<servlet-name>ServletFindAllUser</servlet-name>
+		<servlet-class>servlet.ServletFindAllUser</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ServletFindAllUser</servlet-name>
+		<url-pattern>/ServletFindAllUser</url-pattern>
+	</servlet-mapping>
+	<!-- 查询一个账号 -->
+	<servlet>
+		<servlet-name>ServletSelectUser</servlet-name>
+		<servlet-class>servlet.ServletSelectUser</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ServletSelectUser</servlet-name>
+		<url-pattern>/ServletSelectUser</url-pattern>
+	</servlet-mapping>
+	<!-- 修改账号信息 -->
+	<servlet>
+		<servlet-name>ServletEditUser</servlet-name>
+		<servlet-class>servlet.ServletEditUser</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ServletEditUser</servlet-name>
+		<url-pattern>/ServletEditUser</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>ServletStuAllScore</servlet-name>
+		<servlet-class>servlet.ServletStuAllScore</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ServletStuAllScore</servlet-name>
+		<url-pattern>/ServletStuAllScore</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>ServletStuSum</servlet-name>
+		<servlet-class>servlet.ServletStuSum</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ServletStuSum</servlet-name>
+		<url-pattern>/ServletStuSum</url-pattern>
+	</servlet-mapping>
+	<!-- 查询学生成绩总分 -->
+	<servlet>
+		<servlet-name>ServletStuSumList</servlet-name>
+		<servlet-class>servlet.ServletStuSumList</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ServletStuSumList</servlet-name>
+		<url-pattern>/ServletStuSumList</url-pattern>
+	</servlet-mapping>
+	<!-- 文件上传 -->
+	<servlet>
+		<servlet-name>ServletUploadFile</servlet-name>
+		<servlet-class>servlet.ServletUploadFile</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ServletUploadFile</servlet-name>
+		<url-pattern>/ServletUploadFile</url-pattern>
+	</servlet-mapping>
+	<!-- 文件显示 -->
+	<servlet>
+		<servlet-name>ServletListFile</servlet-name>
+		<servlet-class>servlet.ServletListFile</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ServletListFile</servlet-name>
+		<url-pattern>/ServletListFile</url-pattern>
+	</servlet-mapping>
+	<!-- 文件下载 -->
+	<servlet>
+		<servlet-name>ServletDownloadFile</servlet-name>
+		<servlet-class>servlet.ServletDownloadFile</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ServletDownloadFile</servlet-name>
+		<url-pattern>/ServletDownloadFile</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 教师功能 -->
+	<!-- 查询教师信息 -->
+	<servlet>
+		<servlet-name>ServletTeacherInfo</servlet-name>
+		<servlet-class>servlet.teacher.ServletTeacherInfo</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ServletTeacherInfo</servlet-name>
+		<url-pattern>/ServletTeacherInfo</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>ServletselectTeacherInfo</servlet-name>
+		<servlet-class>servlet.teacher.ServletselectTeacherInfo</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ServletselectTeacherInfo</servlet-name>
+		<url-pattern>/ServletselectTeacherInfo</url-pattern>
+	</servlet-mapping>
+	<!-- 修改教师信息 -->
+	<servlet>
+		<servlet-name>ServletEditTeacherInfo</servlet-name>
+		<servlet-class>servlet.teacher.ServletEditTeacherInfo</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ServletEditTeacherInfo</servlet-name>
+		<url-pattern>/ServletEditTeacherInfo</url-pattern>
+	</servlet-mapping>
+	<!-- 查询开设的课程 -->
+	<servlet>
+		<servlet-name>ServletTeaAllCos</servlet-name>
+		<servlet-class>servlet.teacher.ServletTeaAllCos</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ServletTeaAllCos</servlet-name>
+		<url-pattern>/ServletTeaAllCos</url-pattern>
+	</servlet-mapping>
+	<!-- 查询教师所带课程的学生成绩 -->
+	<servlet>
+		<servlet-name>ServletTeaSearchScore</servlet-name>
+		<servlet-class>servlet.teacher.ServletTeaSearchScore</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ServletTeaSearchScore</servlet-name>
+		<url-pattern>/ServletTeaSearchScore</url-pattern>
+	</servlet-mapping>
+	<!-- 查询学生成绩 -->
+	<servlet>
+		<servlet-name>ServletTeaStuScore</servlet-name>
+		<servlet-class>servlet.teacher.ServletTeaStuScore</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ServletTeaStuScore</servlet-name>
+		<url-pattern>/ServletTeaStuScore</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 学生功能 -->
+	<!-- 查询学生信息 -->
+	<servlet>
+		<servlet-name>ServletStudentInfo</servlet-name>
+		<servlet-class>servlet.student.ServletStudentInfo</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ServletStudentInfo</servlet-name>
+		<url-pattern>/ServletStudentInfo</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>ServletSelectStudentInfo</servlet-name>
+		<servlet-class>servlet.student.ServletSelectStudentInfo</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ServletSelectStudentInfo</servlet-name>
+		<url-pattern>/ServletSelectStudentInfo</url-pattern>
+	</servlet-mapping>
+	<!-- 修改学生信息 -->
+	<servlet>
+		<servlet-name>ServletEditStudentInfo</servlet-name>
+		<servlet-class>servlet.student.ServletEditStudentInfo</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ServletEditStudentInfo</servlet-name>
+		<url-pattern>/ServletEditStudentInfo</url-pattern>
+	</servlet-mapping>
+	<!-- 查询各科成绩 -->
+	<servlet>
+		<servlet-name>ServletFindStudentScore</servlet-name>
+		<servlet-class>servlet.student.ServletFindStudentScore</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ServletFindStudentScore</servlet-name>
+		<url-pattern>/ServletFindStudentScore</url-pattern>
+	</servlet-mapping>
+	<!-- 查询单科成绩 -->
+	<servlet>
+		<servlet-name>ServletOneStudentScore</servlet-name>
+		<servlet-class>servlet.student.ServletOneStudentScore</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ServletOneStudentScore</servlet-name>
+		<url-pattern>/ServletOneStudentScore</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>PageServlet</servlet-name>
+		<servlet-class>servlet.PageServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>PageServlet</servlet-name>
+		<url-pattern>/PageServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 注册 -->
+	<servlet>
+		<servlet-name>ServletRegisterStu</servlet-name>
+		<servlet-class>servlet.student.ServletRegisterStu</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ServletRegisterStu</servlet-name>
+		<url-pattern>/ServletRegisterStu</url-pattern>
+	</servlet-mapping>
+	<!-- 注册成功 -->
+	<servlet>
+		<servlet-name>ServletRegistersStudent</servlet-name>
+		<servlet-class>servlet.student.ServletRegistersStudent</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ServletRegistersStudent</servlet-name>
+		<url-pattern>/ServletRegistersStudent</url-pattern>
+	</servlet-mapping>
+	
+	<welcome-file-list>
+		<welcome-file>login/login.jsp</welcome-file>
+	</welcome-file-list>
+</web-app>

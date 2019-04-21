@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	version="3.0">
+	
+	<!-- Spring MVC配置 -->
+	<servlet>
+		<servlet-name>springmvc</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		 <!-- 可以自定义servlet.xml配置文件的位置和名称，默认为WEB-INF目录下，名称为[<servlet-name>]-servlet.xml，如spring-servlet.xml-->
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>classpath:springmvc-servlet.xml</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+		 <!--Servlet3.0以上文件上传配置 -->
+        <multipart-config>
+            <!--上传文件的最大限制5MB -->
+            <max-file-size>5242880</max-file-size>
+            <!--请求的最大限制20MB -->
+            <max-request-size>20971520</max-request-size>
+            <!--当文件的大小超过临界值时将写入磁盘 -->
+            <file-size-threshold>0</file-size-threshold>
+        </multipart-config>
+		
+	</servlet>
+	<!--所有请求都会被springmvc拦截 -->
+	<servlet-mapping>
+		<servlet-name>springmvc</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Spring配置 -->
+	<!-- ====================================== -->
+	<listener>
+	   <listener-class>
+	     org.springframework.web.context.ContextLoaderListener
+	   </listener-class>
+	</listener>
+	  
+	
+	<!-- 指定Spring Bean的配置文件所在目录。默认配置在WEB-INF目录下 -->
+	<context-param>
+	    <param-name>contextConfigLocation</param-name>
+	    <param-value>classpath*:applicationContext.xml</param-value>
+	</context-param>
+	<!-- Spring MVC字符过滤器配置 -->
+	<filter>
+		<filter-name>characterEncodingFilter</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+		<init-param>
+			<param-name>forceEncoding</param-name>
+			<param-value>true</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>characterEncodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+</web-app>

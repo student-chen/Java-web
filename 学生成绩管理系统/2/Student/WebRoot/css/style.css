@@ -1,0 +1,85 @@
+@charset "utf-8";
+
+* {
+	margin: 0;
+	padding: 0;
+}
+body {
+	background-image: url(../images/body-bg.png);
+	background-repeat: repeat;
+}
+
+.login {
+	width: 450px;
+	margin-top: 90px;
+}
+
+.login_head {
+	width: 450px;
+	height: 50px;
+	background: #3C4049;
+}
+
+.login_head h3 {
+	float: left;
+	margin-left: 10px;
+	margin-top: 13px;
+	color: #FFF;
+	font-family: "宋体";
+	font-size: 18px;
+}
+
+.login_window {
+	width: 450px;
+	height: 230px;
+	margin-top: 15px;
+	background: #FFF;
+	border: 1px solid #DDD;
+}
+
+.login_window div {
+	margin-top: 25px;
+	margin-left: 0;
+}
+
+.login_window label {
+	float: left;
+	color: #3C4049;
+	font-family: "宋体";
+	font-size: 14px;
+	margin-left: 20px;
+	margin-bottom: 5px;
+	margin-left: 20px;
+}
+
+.login_window input {
+	width: 410px;
+	height: 35px;
+	padding: 2% 2%;
+	margin-left: 0;
+	border-collapse: collapse;
+}
+
+.login_root {
+	width: 200x;
+	height: 30px;
+}
+
+.login_root input {
+	float: left;
+	width: 14px;
+	margin-left: 27px;
+}
+
+.reg {
+	float: left;
+	margin-bottom: 0px;
+}
+
+.reg a {
+	color: red;
+	text-decoration: none;
+	display: block;
+}
+
+/* 以上是login.jsp的页面样式 */

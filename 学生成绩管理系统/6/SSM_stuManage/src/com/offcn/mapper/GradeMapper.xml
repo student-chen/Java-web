@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.offcn.mapper.GradeMapper">
+  <resultMap id="BaseResultMap" type="com.offcn.pojo.Grade">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="sid" jdbcType="INTEGER" property="sid" />
+    <result column="cid" jdbcType="INTEGER" property="cid" />
+    <result column="tid" jdbcType="INTEGER" property="tid" />
+    <result column="pgrade" jdbcType="DOUBLE" property="pgrade" />
+    <result column="kgrade" jdbcType="DOUBLE" property="kgrade" />
+    <result column="zgrade" jdbcType="DOUBLE" property="zgrade" />
+  </resultMap>
+  
+  <insert id="insertGrade" parameterType="grade">
+     insert into grade (sid, cid, 
+      tid, pgrade, kgrade, 
+      zgrade)
+    values (#{sid,jdbcType=INTEGER}, #{cid,jdbcType=INTEGER}, 
+      #{tid,jdbcType=INTEGER}, #{pgrade,jdbcType=DOUBLE}, #{kgrade,jdbcType=DOUBLE}, 
+      #{zgrade,jdbcType=DOUBLE})
+  </insert>
+  
+  <!-- <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, sid, cid, tid, pgrade, kgrade, zgrade
+  </sql>
+  <select id="selectByExample" parameterType="com.offcn.pojo.GradeExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from grade
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from grade
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from grade
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.offcn.pojo.GradeExample">
+    delete from grade
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.offcn.pojo.Grade">
+    insert into grade (id, sid, cid, 
+      tid, pgrade, kgrade, 
+      zgrade)
+    values (#{id,jdbcType=INTEGER}, #{sid,jdbcType=INTEGER}, #{cid,jdbcType=INTEGER}, 
+      #{tid,jdbcType=INTEGER}, #{pgrade,jdbcType=DOUBLE}, #{kgrade,jdbcType=DOUBLE}, 
+      #{zgrade,jdbcType=DOUBLE})
+  </insert>
+  <insert id="insertSelective" parameterType="com.offcn.pojo.Grade">
+    insert into grade
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="sid != null">
+        sid,
+      </if>
+      <if test="cid != null">
+        cid,
+      </if>
+      <if test="tid != null">
+        tid,
+      </if>
+      <if test="pgrade != null">
+        pgrade,
+      </if>
+      <if test="kgrade != null">
+        kgrade,
+      </if>
+      <if test="zgrade != null">
+        zgrade,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="sid != null">
+        #{sid,jdbcType=INTEGER},
+      </if>
+      <if test="cid != null">
+        #{cid,jdbcType=INTEGER},
+      </if>
+      <if test="tid != null">
+        #{tid,jdbcType=INTEGER},
+      </if>
+      <if test="pgrade != null">
+        #{pgrade,jdbcType=DOUBLE},
+      </if>
+      <if test="kgrade != null">
+        #{kgrade,jdbcType=DOUBLE},
+      </if>
+      <if test="zgrade != null">
+        #{zgrade,jdbcType=DOUBLE},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.offcn.pojo.GradeExample" resultType="java.lang.Long">
+    select count(*) from grade
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update grade
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.sid != null">
+        sid = #{record.sid,jdbcType=INTEGER},
+      </if>
+      <if test="record.cid != null">
+        cid = #{record.cid,jdbcType=INTEGER},
+      </if>
+      <if test="record.tid != null">
+        tid = #{record.tid,jdbcType=INTEGER},
+      </if>
+      <if test="record.pgrade != null">
+        pgrade = #{record.pgrade,jdbcType=DOUBLE},
+      </if>
+      <if test="record.kgrade != null">
+        kgrade = #{record.kgrade,jdbcType=DOUBLE},
+      </if>
+      <if test="record.zgrade != null">
+        zgrade = #{record.zgrade,jdbcType=DOUBLE},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update grade
+    set id = #{record.id,jdbcType=INTEGER},
+      sid = #{record.sid,jdbcType=INTEGER},
+      cid = #{record.cid,jdbcType=INTEGER},
+      tid = #{record.tid,jdbcType=INTEGER},
+      pgrade = #{record.pgrade,jdbcType=DOUBLE},
+      kgrade = #{record.kgrade,jdbcType=DOUBLE},
+      zgrade = #{record.zgrade,jdbcType=DOUBLE}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.offcn.pojo.Grade">
+    update grade
+    <set>
+      <if test="sid != null">
+        sid = #{sid,jdbcType=INTEGER},
+      </if>
+      <if test="cid != null">
+        cid = #{cid,jdbcType=INTEGER},
+      </if>
+      <if test="tid != null">
+        tid = #{tid,jdbcType=INTEGER},
+      </if>
+      <if test="pgrade != null">
+        pgrade = #{pgrade,jdbcType=DOUBLE},
+      </if>
+      <if test="kgrade != null">
+        kgrade = #{kgrade,jdbcType=DOUBLE},
+      </if>
+      <if test="zgrade != null">
+        zgrade = #{zgrade,jdbcType=DOUBLE},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.offcn.pojo.Grade">
+    update grade
+    set sid = #{sid,jdbcType=INTEGER},
+      cid = #{cid,jdbcType=INTEGER},
+      tid = #{tid,jdbcType=INTEGER},
+      pgrade = #{pgrade,jdbcType=DOUBLE},
+      kgrade = #{kgrade,jdbcType=DOUBLE},
+      zgrade = #{zgrade,jdbcType=DOUBLE}
+    where id = #{id,jdbcType=INTEGER}
+  </update> -->
+</mapper>

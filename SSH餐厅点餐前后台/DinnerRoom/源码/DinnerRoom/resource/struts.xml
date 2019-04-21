@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN" "struts-2.1.7.dtd" >
+<struts>
+	<!-- struts2的表单格式以XHTML格式显示 -->
+	<constant name="struts.ui.theme" value="simple" />
+	<!-- 编码格式 -->
+	<constant name="struts.i18n.encoding" value="utf-8"></constant>
+	<!-- 登陆退出action -->
+	<package name="loginAndOut" namespace="/" extends="json-default">
+		<action name="login" class="cn.dinner.action.UsersAction" method="Login"/>
+		<action name="outQTSys" class="cn.dinner.action.UsersAction" method="loginQTOut"/>
+	</package>
+	
+	
+	<!-- 前台action -->
+	<package name="qiantai" namespace="/" extends="json-default">
+		<interceptors>
+			<interceptor name="userInter" class="cn.dinner.Interceptor.UserInterceptor"/>
+			<interceptor-stack name="MyStack">
+				<interceptor-ref name="userInter"/>
+				<interceptor-ref name="defaultStack"/>
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="MyStack"/>
+		<global-results>
+	 		<result name="login" type="redirect">/login.jsp</result>
+	 	</global-results>
+	 	<action name="qtIndex" class="cn.dinner.action.QianTaiAction" method="goQTIndex">
+	 		<result name="success">qiantai.jsp</result>
+	 	</action>
+		<action name="canzhuosyqk" class="cn.dinner.action.QianTaiAction" method="czsyqk">
+			<result name="success">canzuosyqk.jsp</result>
+		</action>
+		<action name="jiuzuo" class="cn.dinner.action.QianTaiAction" method="jiuZuo"/>
+		<action name="OrderJieSuan" class="cn.dinner.action.QianTaiAction" method="getAllOrderInfo">
+			<result name="success" type="json">
+				<param name="root">qtorderjson</param>
+			</result>
+		</action>
+		<action name="JieSuan" class="cn.dinner.action.QianTaiAction" method="jieSuanOrder"/>
+		<action name="getMember" class="cn.dinner.action.MemberAction" method="getAllMember">
+			<result name="success" type="json">
+				<param name="root">memberjson</param>
+			</result>
+		</action>
+		<action name="QTdelMember" class="cn.dinner.action.MemberAction" method="delMember"/>
+		<action name="QTgetMemberType" class="cn.dinner.action.QianTaiAction" method="getAllMemberType"/>
+		<action name="QTupdateMember" class="cn.dinner.action.QianTaiAction" method="updateMember"/>
+		<action name="QTAddMember" class="cn.dinner.action.QianTaiAction" method="AddMember"/>
+	</package>
+	
+	
+	<!-- 点餐后厨action -->
+	<package name="dcht" namespace="/" extends="json-default">
+		<action name="diancan" class="cn.dinner.action.DianCanAction" method="diancan">
+			<result name="success">diancan.jsp</result>
+		</action>
+		<action name="OrderMenu" class="cn.dinner.action.DianCanAction" method="OrderMenu">
+			<result name="success">OrderMenu.jsp</result>
+		</action>
+		<action name="getAllOrderInfo" class="cn.dinner.action.DinnerOrderAction" method="getAllOrderInfo">
+			<result name="success" type="json">
+				<param name="root">orderjson</param>
+			</result>
+		</action>
+		<action name="getnoticeByid" class="cn.dinner.action.DinnerNoticeAction" method="getAlldinnerNoticeByid">
+			<result name="success" type="json">
+				<param name="root">noticejson</param>
+			</result>
+		</action>
+		<action name="getHouchuInfo" class="cn.dinner.action.HouChuActionn" method="houchu">
+			<result name="success" type="json">
+				<param name="root">houchujson</param>
+			</result>
+		</action>
+		<action name="updateIsfull" class="cn.dinner.action.HouChuActionn" method="updateisFull"/>
+		<action name="dingcan" class="cn.dinner.action.DianCanAction" method="dianCan"/>
+	</package>
+	
+	
+	<!-- 后台所有action -->
+	<package name="Alljson" namespace="/admin" extends="json-default">
+		<interceptors>
+			<interceptor name="userInter" class="cn.dinner.Interceptor.UserInterceptor"/>
+			<interceptor-stack name="MyStack">
+				<interceptor-ref name="userInter"/>
+				<interceptor-ref name="defaultStack"/>
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="MyStack"/>
+		<global-results>
+	 		<result name="login" type="redirect">/login.jsp</result>
+	 	</global-results>
+	 	<action name="home" class="cn.dinner.action.HomeAction" method="homeInfo">
+	 		<result name="sucess">home.jsp</result>
+	 	</action>
+	 	<action name="index" class="cn.dinner.action.UsersAction" method="goIndex">
+	 		<result name="success">index.jsp</result>
+	 	</action>
+		<action name="addMenu" class="cn.dinner.action.MenuAction" method="AddMenu"/>
+		<action name="showcaipu" class="cn.dinner.action.MenuTypeAction" method="getAlltype">
+			<result name="success">caipu.jsp</result>
+		</action>
+		<action name="showAddcaipu" class="cn.dinner.action.MenuTypeAction" method="getAlltype">
+			<result name="success">Addcaipu.jsp</result>
+		</action>
+		<action name="addMenuType" class="cn.dinner.action.MenuTypeAction" method="AddMenuType"/>
+		<action name="outSys" class="cn.dinner.action.UsersAction" method="loginOut"/>
+		<action name="delmenu" class="cn.dinner.action.MenuAction" method="delMenu"/>
+		<action name="delmenuType" class="cn.dinner.action.MenuTypeAction" method="delMenuType"/>
+		<action name="getUpdateMenuInfo" class="cn.dinner.action.MenuAction" method="getgetUpMenuInfo">
+			<result name="success">Addcaipu.jsp</result>
+		</action>
+		<action name="updateMenuInfo" class="cn.dinner.action.MenuAction" method="UpdateMenu"/>
+		<action name="showMember" class="cn.dinner.action.MemberTypeAction" method="getAllMemberType">
+			<result name="success">huiyuan.jsp</result>
+		</action>
+		<action name="showUpMember" class="cn.dinner.action.MemberAction" method="ShowUpMemberInfo">
+			<result name="success">Uphuiyuan.jsp</result>
+		</action>
+		<action name="UpdateMember" class="cn.dinner.action.MemberAction" method="UpdateMemberInfo"/>
+		<action name="delMember" class="cn.dinner.action.MemberAction" method="delMember"/>
+		<action name="addMemberType" class="cn.dinner.action.MemberTypeAction" method="addMemberType"/>
+		<action name="delMembertype" class="cn.dinner.action.MemberTypeAction" method="delMemberType"/>
+		<action name="deltable" class="cn.dinner.action.DiningTableAction" method="delDinnerTable"/>
+		<action name="getTableUpInfo" class="cn.dinner.action.DiningTableAction" method="getTableUpdateInfo">
+			<result name="success">Addcanzhuo.jsp</result>
+		</action>
+		<action name="updateTable" class="cn.dinner.action.DiningTableAction" method="UpdateTable"/>
+		<action name="addTable" class="cn.dinner.action.DiningTableAction" method="addTable"/>
+		<action name="delOrder" class="cn.dinner.action.DinnerOrderAction" method="delOrderInfo"/>
+		<action name="getoneUser" class="cn.dinner.action.UsersAction" method="getUserInfo">
+			<result name="success">Addyuangong.jsp</result>
+		</action>
+		<action name="updateuser" class="cn.dinner.action.UsersAction" method="UpdateUser"/>
+		<action name="Adduser" class="cn.dinner.action.UsersAction" method="AddUser"/>
+		<action name="deluser" class="cn.dinner.action.UsersAction" method="delUser"/>
+		<action name="upuserpwd" class="cn.dinner.action.UsersAction" method="UpUserPwd"/>
+		<action name="getallusers" class="cn.dinner.action.UsersAction" method="getAllUsers">
+			<result name="success" type="json">
+				<param name="root">usersjson</param>
+			</result>
+		</action>
+		<action name="getallmenu" class="cn.dinner.action.MenuAction" method="getAllMenu">
+			<result name="success" type="json">
+				<param name="root">menujson</param>
+			</result>
+		</action>
+		<action name="getallMenuType" class="cn.dinner.action.MenuTypeAction" method="getAllMenuType">
+			<result name="success" type="json">
+				<param name="root">menutypejson</param>
+			</result>
+		</action>
+		<action name="getallMember" class="cn.dinner.action.MemberAction" method="getAllMember">
+			<result name="success" type="json">
+				<param name="root">memberjson</param>
+			</result>
+		</action>
+		<action name="getallMemberType" class="cn.dinner.action.MemberTypeAction" method="getAllMemberTypeByPage">
+			<result name="success" type="json">
+				<param name="root">membertypejson</param>
+			</result>
+		</action>
+		<action name="getTable" class="cn.dinner.action.DiningTableAction" method="getAllTable">
+			<result name="success" type="json">
+				<param name="root">diningTablejson</param>
+			</result>
+		</action>
+		<action name="getAllOrder" class="cn.dinner.action.DinnerOrderAction" method="getAllOrderInfo">
+			<result name="success" type="json">
+				<param name="root">orderjson</param>
+			</result>
+		</action>
+		<action name="getAllnoticeByid" class="cn.dinner.action.DinnerNoticeAction" method="getAlldinnerNoticeByid">
+			<result name="success" type="json">
+				<param name="root">noticejson</param>
+			</result>
+		</action>
+	</package>
+</struts>

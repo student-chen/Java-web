@@ -1,0 +1,50 @@
+.TH {
+text-align:left; 
+vertical-align:middle;
+padding:2px;
+font-size:9pt;
+cursor:hand;
+
+background-color: #ffffff;
+border-bottom: #264e75 solid 1px;
+border-left: #71c2ff solid 1px;
+border-right: #264e75 solid 1px;
+border-top: #71c2ff solid 1px;
+text-decoration: none;
+}
+TD {
+vertical-align:top;
+background-color:#EEE;
+padding:4px;
+font-size:9pt;
+font-family:Arial;
+}
+
+a			{ text-decoration: none; color: #003366 }
+a:hover			{ text-decoration: underline }
+body			
+{ 
+FONT: 12px ËÎÌו; COLOR: #ffffff; TEXT-DECORATION: none
+scrollbar-base-color: #000000;
+scrollbar-arrow-color: #000000;
+font-size: 12px; background-color: #000000 
+}
+table			{ font: 12px Tahoma, Verdana; color: #000000 }
+input,select,textarea	{ font: 11px Tahoma, Verdana; color: #000000; font-weight: normal; background-color: #F8F8F8 }
+form			{ margin: 0; padding: 0}
+select			{ font: 11px Arial, Tahoma; color: #000000; font-weight: normal; background-color: #F8F8F8 }
+.nav			{ font: 12px Tahoma, Verdana; color: #000000; font-weight: bold }
+.nav a			{ color: #000000 }
+.header			{ font: 11px Tahoma, Verdana; color: #FFFFFF; font-weight: bold; background-color: #000000 }
+.header a		{ color: #FFFFFF }
+.category		{ font: 11px Arial, Tahoma; color: #000000; background-color: #EFEFEF }
+.tableborder		{ background: #000000; border: 1px solid #FFFFFF } 
+.singleborder		{ font-size: 0px; line-height: 1px; padding: 0px; background-color: #F8F8F8 }
+.smalltxt		{ font: 11px Arial, Tahoma }
+.outertxt		{ font: 12px Tahoma, Verdana; color: #000000 }
+.outertxt a		{ color: #000000 }
+.bold			{ font-weight: bold }
+.altbg1			{ background: #F8F8F8 }
+.altbg2			{ background: #FFFFFF }
+.maintable		{ width: 98%; background-color: #FFFFFF }
+

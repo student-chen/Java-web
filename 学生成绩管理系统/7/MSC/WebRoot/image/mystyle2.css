@@ -1,0 +1,61 @@
+@CHARSET "UTF-8";
+<style type="text/css"> 
+<!--
+a:link { text-decoration: none;color: blue}
+a:active { text-decoration:blink}
+a:visited { text-decoration: none;color: blue}
+body {font-family:宋体;margin:0}
+-->
+	
+	body {font-family:宋体;margin:0}
+ul.TabBarLevel1{
+	list-style:none;
+	margin:0;
+	padding:0;
+	height:29px;
+	background-image:url("tabbar_level1_bk.gif");
+}
+ul.TabBarLevel1 li{
+	float:left;
+	padding:0;
+	
+	height:29px;
+	margin-right:1px;
+	background:url("tabbar_level1_slice_left_bk.gif") left top no-repeat;
+}
+ul.TabBarLevel1 li a{
+	display:block;
+	line-height:29px;
+	padding:0 20px;
+	color:#333;
+	background:url("tabbar_level1_slice_right_bk.gif") right top no-repeat;
+	white-space: nowrap;
+}
+ul.TabBarLevel1 li.Selected{
+	background:url("tabbar_level1_slice_selected_left_bk.gif") left top no-repeat;
+}
+ul.TabBarLevel1 li.Selected a{
+	background:url("tabbar_level1_slice_selected_right_bk.gif") right top no-repeat;
+}
+ 
+ul.TabBarLevel1 li a:link,ul.TabBarLevel1 li a:visited{
+	color:#333;
+}
+ul.TabBarLevel1 li a:hover,ul.TabBarLevel1 li a:active{
+	color:#F30;
+	text-decoration:none;
+}
+ul.TabBarLevel1 li.Selected a:link,ul.TabBarLevel1 li.Selected a:visited{
+	color:#000;
+}
+ul.TabBarLevel1 li.Selected a:hover,ul.TabBarLevel1 li.Selected a:active{
+	color:#F30;
+	text-decoration:none;
+}
+div.HackBox {
+  padding : 2px 2px ;
+  border-left: 2px solid #6697CD;
+  border-right: 2px solid #6697CD;
+  border-bottom: 2px solid #6697CD;
+}
+</style>

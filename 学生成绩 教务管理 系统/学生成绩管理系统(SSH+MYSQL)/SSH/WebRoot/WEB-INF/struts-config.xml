@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+	<data-sources />
+	<form-beans>
+		<form-bean name="registerForm"
+			type="com.ssh.struts.form.RegisterForm" />
+
+	</form-beans>
+
+	<global-exceptions />
+	<global-forwards />
+	<action-mappings>
+		<action attribute="registerForm" parameter="method"
+			input="/register.jsp" name="registerForm" path="/register"
+			scope="request" type="com.ssh.struts.action.RegisterAction">
+			<forward name="ok" path="/ok.jsp" />
+			<forward name="error" path="/error.jsp" />
+			<forward name="main" path="/main.jsp" />
+			<forward name="index" path="/index.jsp" />
+		</action>
+
+
+	</action-mappings>
+	<controller
+		processorClass="org.springframework.web.struts.DelegatingRequestProcessor">
+	</controller>
+	<message-resources parameter="com.ssh.struts.ApplicationResources" />
+
+	<plug-in
+		className="org.springframework.web.struts.ContextLoaderPlugIn">
+		<set-property property="contextConfigLocation"
+			value="/WEB-INF/spring-config.xml" />
+	</plug-in>
+</struts-config>
+

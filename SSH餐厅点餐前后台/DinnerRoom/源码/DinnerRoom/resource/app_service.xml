@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	default-autowire="byName"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+	
+	<!-- Service包实现类 -->
+	<bean id="usersservice" class="cn.dinner.service.Impl.UsersserviceImpl" />
+	<bean id="menuservice" class="cn.dinner.service.Impl.MenuserviceImpl" />
+	<bean id="menuTypeservice" class="cn.dinner.service.Impl.MenuTypeserviceImpl" />
+	<bean id="memberservice" class="cn.dinner.service.Impl.MemberserviceImpl" />
+	<bean id="memberTypeservice" class="cn.dinner.service.Impl.MemberTypeserviceImpl" />
+	<bean id="diningTableservice" class="cn.dinner.service.Impl.DiningTableserviceImpl" />
+	<bean id="dinnerOrderservice" class="cn.dinner.service.Impl.DinnerOrderserviceImpl" />
+	<bean id="dinnerNoticeservice" class="cn.dinner.service.Impl.DinnerNoticeserviceImpl" />
+</beans>

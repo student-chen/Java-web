@@ -1,0 +1,36 @@
+@charset "utf-8";
+* {
+	margin:0;
+	padding:0;
+}
+a:link {
+	color: #666;
+	text-decoration: none;
+}
+a:visited {
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: none;
+	color: #F03;
+}
+a:active {
+	text-decoration: none;	
+}
+body {
+	background:background:url(../images/body-bg.png) repeat;
+}
+.window {
+	margin-top:20px;
+	width: 800px;
+}
+.tit {
+	color:#999;
+	font-family:"黑体";
+	font-size:36px;
+	width:240px;
+	height:40px;
+	line-height:40px;
+	overflow:hidden;
+	margin-bottom:32px;
+}

@@ -1,0 +1,220 @@
+html {
+	background: none repeat scroll 0 0 #FFFFFF;
+	overflow-y: scroll
+}
+
+body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,fieldset,lengend,button,input,textarea,form,th,td
+	{
+	margin: 0;
+	padding: 0
+}
+
+body,button,input,select,textarea {
+	font: 14px/1.8 "Microsoft Yahei", verdana
+}
+
+.ie10 body,.ie11 body {
+	font: 14px/1.8 "Microsoft Yahei", verdana
+}
+
+h1,h2,h3,h4,h5,h6 {
+	font-size: 100%;
+	font-weight: normal
+}
+
+button,input,select,textarea {
+	font-size: 100%
+}
+
+hr {
+	border: 0;
+	height: 1px;
+	*color: #fff
+}
+
+address,cite,dfn,em,var {
+	font-style: normal
+}
+
+small {
+	font-size: 12px
+}
+
+.fl-clear {
+	clear: both
+}
+
+.fl-clr {
+	zoom: 1
+}
+
+.fl-clr:after {
+	display: block;
+	clear: both;
+	height: 0;
+	content: "\0020"
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0
+}
+
+ul,ol {
+	list-style: none outside none
+}
+
+a {
+	text-decoration: none;
+	color: #696969
+}
+
+a:hover {
+	text-decoration: none;
+	color: #ff6637
+}
+
+img {
+	border: 0
+}
+
+.nav_title {
+	text-align: center;
+	padding: 50px 0;
+	font-size: 16px;
+}
+
+.nav_title a {
+	margin: 0 20px;
+	display: inline-block;
+	border: 1px solid #ccc;
+	height: 40px;
+	line-height: 40px;
+	padding: 0 20px;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	overflow: hidden
+}
+
+.nav_title .a {
+	color: #fff;
+	background: #ff6637;
+	border: 1px solid #ff6637;
+}
+
+.content_left {
+	width: 240px;
+	margin: 50px auto
+}
+
+.content_left .title {
+	height: 45px;
+	background: #ff6637;
+	color: #fff;
+	padding: 0 20px;
+	line-height: 45px;
+	font-size: 16px
+}
+
+.content_left .title span {
+	background: url(../images/ioc.png) no-repeat 0 center;
+	padding-left: 22px;
+}
+
+.left_nav {
+	border: 1px solid #e6e6e6;
+	border-top: 0;
+	overflow: hidden;
+	padding: 0 0 20px 0
+}
+
+.left_nav ul {
+	margin-top: -1px;
+}
+
+.left_nav li {
+	padding: 0 20px;
+	border-top: 1px dashed #e7e7e7
+}
+
+.left_nav li .t {
+	height: 50px;
+	line-height: 50px;
+	padding: 0 0 0 18px;
+	position: relative
+}
+
+.left_nav li .t i {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 18px;
+	height: 50px;
+	background: url(../images/ioc_l.png) no-repeat 0 center;
+	cursor: pointer
+}
+
+.left_nav li .t a,.left_nav li .t.hover:hover a {
+	color: #000
+}
+
+.left_nav li .t:hover i {
+	background: url(../images/ioc_la.png) no-repeat 0 center;
+}
+
+.left_nav li .t:hover a {
+	color: #ff5825
+}
+
+.left_nav li .t.hover i {
+	background: url(../images/ioc_b.png) no-repeat 0 center;
+}
+
+.left_nav li .txt {
+	padding: 0 0 20px 18px;
+	display: none
+}
+
+.left_nav li .txt p {
+	line-height: 30px;
+	height: 30px;
+	overflow: hidden
+}
+
+.left_nav .more {
+	background: #ff6637;
+	display: block;
+	width: 120px;
+	height: 30px;
+	margin: 0 auto;
+	text-align: center;
+	line-height: 30px;
+	color: #fff;
+	cursor: pointer;
+	border-radius: 50px;
+	-moz-border-radius: 50px;
+	-webkit-border-radius: 50px;
+	overflow: hidden
+}
+
+.left_nav .more:hover {
+	background: #ff5825
+}
+
+.left_nav .more span {
+	padding-right: 18px;
+	background: url(../images/ioc_ba.png) no-repeat right center;
+}
+
+.left_nav .more.hover span {
+	background: url(../images/ioc_t.png) no-repeat right center;
+}
+
+.explain_txt {
+	width: 860px;
+	margin: 0 auto;
+	line-height: 40px;
+	padding: 0 0 200px 0;
+	font-size: 16px
+}

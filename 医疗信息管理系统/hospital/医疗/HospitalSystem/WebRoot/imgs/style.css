@@ -1,0 +1,120 @@
+BODY {
+	FONT-SIZE: 12px; BACKGROUND: #ced7f7; SCROLLBAR-HIGHLIGHT-COLOR: buttonface; SCROLLBAR-SHADOW-COLOR: buttonface; SCROLLBAR-3DLIGHT-COLOR: buttonhighlight; SCROLLBAR-TRACK-COLOR: #eeeeee; FONT-FAMILY: "ËÎÌו", "Verdana", "Arial"; SCROLLBAR-DARKSHADOW-COLOR: buttonshadow
+}
+TD {
+	FONT-SIZE: 12px
+}
+INPUT {
+	BORDER-TOP-WIDTH: 1px; BORDER-LEFT-WIDTH: 1px; FONT-SIZE: 12px; BORDER-BOTTOM-WIDTH: 1px; BORDER-RIGHT-WIDTH: 1px
+}
+TEXTAREA {
+	BORDER-TOP-WIDTH: 1px; BORDER-LEFT-WIDTH: 1px; FONT-SIZE: 12px; BORDER-BOTTOM-WIDTH: 1px; BORDER-RIGHT-WIDTH: 1px
+}
+SELECT {
+	BORDER-TOP-WIDTH: 1px; BORDER-LEFT-WIDTH: 1px; FONT-SIZE: 12px; BORDER-BOTTOM-WIDTH: 1px; BORDER-RIGHT-WIDTH: 1px
+}
+SPAN {
+	FONT-SIZE: 12px; POSITION: static
+}
+.button {
+	FONT: bold 11px tahoma,verdana,arial,helvetica,sans-serif
+}
+A:link {
+	COLOR: #000000; TEXT-DECORATION: none
+}
+A:visited {
+	COLOR: #000000; TEXT-DECORATION: none
+}
+A:hover {
+	COLOR: #428eff; TEXT-DECORATION: underline
+}
+A.highlight:link {
+	COLOR: red; TEXT-DECORATION: none
+}
+A.highlight:visited {
+	COLOR: red; TEXT-DECORATION: none
+}
+A.highlight:hover {
+	COLOR: red
+}
+A.thisclass:link {
+	FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+A.thisclass:visited {
+	FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+A.thisclass:hover {
+	FONT-WEIGHT: bold
+}
+A.navlink:link {
+	COLOR: #000000; TEXT-DECORATION: none
+}
+A.navlink:visited {
+	COLOR: #000000; TEXT-DECORATION: none
+}
+A.navlink:hover {
+	COLOR: #003399; TEXT-DECORATION: none
+}
+.twidth {
+	WIDTH: 760px
+}
+.content {
+	FONT-SIZE: 14px; MARGIN: 5px 20px; LINE-HEIGHT: 140%; FONT-FAMILY: Tahoma,ËÎÌו
+}
+.aTitle {
+	FONT-WEIGHT: bold; FONT-SIZE: 15px
+}
+TD.forumHeaderBackgroundAlternate {
+	BACKGROUND-IMAGE: url(admin_top_bg.gif); COLOR: #000000; BACKGROUND-COLOR: #799ae1
+}
+#TableTitleLink A:link {
+	COLOR: #ffffff; TEXT-DECORATION: none
+}
+#TableTitleLink A:visited {
+	COLOR: #ffffff; TEXT-DECORATION: none
+}
+#TableTitleLink A:active {
+	COLOR: #ffffff; TEXT-DECORATION: none
+}
+#TableTitleLink A:hover {
+	COLOR: #ffffff; TEXT-DECORATION: underline
+}
+TH {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; BACKGROUND-IMAGE: url(admin_bg_1.gif); COLOR: white; BACKGROUND-COLOR: #4455aa
+}
+TD.bodytitle {
+	BACKGROUND-IMAGE: url(admin_bg_2.gif)
+}
+TD.bodytitle1 {
+	BACKGROUND-IMAGE: url(admin_bg_3.gif)
+}
+TD.tablebody1 {
+	PADDING-RIGHT: 3px; PADDING-LEFT: 3px; BACKGROUND: #bebbdb; PADDING-BOTTOM: 3px; PADDING-TOP: 3px
+}
+TD.forumRow {
+	PADDING-RIGHT: 3px; PADDING-LEFT: 3px; BACKGROUND: #f1f3f5; PADDING-BOTTOM: 3px; PADDING-TOP: 3px
+}
+TD.forumRowHighlight {
+	PADDING-RIGHT: 3px; PADDING-LEFT: 3px; BACKGROUND: #e4edf9; PADDING-BOTTOM: 3px; PADDING-TOP: 3px
+}
+.tableBorder {
+	BORDER-RIGHT: #183789 1px solid; BORDER-TOP: #183789 1px solid; BORDER-LEFT: #183789 1px solid; BORDER-BOTTOM: #183789 1px solid; BACKGROUND-COLOR: #ffffff
+}
+.tableBorder1 {
+	WIDTH: 98%
+}
+.helplink {
+	FONT: 10px verdana,arial,helvetica,sans-serif; CURSOR: help; TEXT-DECORATION: none
+}
+.copyright {
+	FONT: bolder 11px verdana,arial,Tahoma; COLOR: #c0cad1; PADDING-TOP: 1px
+}
+.copyright1 {
+	PADDING-RIGHT: 1px; BORDER-TOP: #6595d6 1px dashed; PADDING-LEFT: 1px; PADDING-BOTTOM: 1px; FONT: 11px verdana,arial,helvetica,sans-serif; COLOR: #4455aa; PADDING-TOP: 1px; TEXT-DECORATION: none
+}
+.tablefoot {
+	BORDER-RIGHT: 1px outset; BORDER-TOP: 1px outset; FONT: 11px tahoma,verdana,arial,helvetica,sans-serif; BORDER-LEFT: 1px outset; COLOR: #001f30; BORDER-BOTTOM: 1px outset; BACKGROUND-COLOR: #dee0e2
+}
+.tdfoot {
+	FONT: 11px verdana,arial,Tahoma; COLOR: #001f30
+}

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.svse.dao.IncarDAOI">
+	<!-- 添加 -->
+	<insert id="add" parameterType="InCarEntity">
+		insert into t_incar values(null,#{detailid},#{incarcount},#{incarflag})
+	</insert>
+	
+	<!-- 修改 -->
+	<update id="upp" parameterType="InCarEntity">
+		update t_incar set detailid=#{detailid},incarcount=#{incarcount},incarflag=#{incarflag}
+			where incarid=#{incarid}
+	</update>
+	
+	<!-- 全查询 -->
+	<select id="all"  resultType="InCarEntity">
+      	select * from t_incar 
+	</select>
+	
+	<select id="all1"  resultType="InCarEntity">
+      	select * from t_incar c,t_cardetail d where c.detailid=d.detailid limit #{0},#{1}
+	</select>
+	
+	<!-- 查询单个 -->
+	<select id="one" parameterType="int" resultType="InCarEntity">
+		select * from t_incar where incarid=#{incarid}
+	</select>
+	
+	<!-- 所有记录 -->
+	<select id="count" resultType="int">
+		select count(*) from t_incar
+	</select>
+	
+	<!-- 汽车系列 -->
+	<select id="all2" resultType="CardetailEntity">
+		select detailid,detailname,detailguige from t_cardetail where detailflag=1 and detailid NOT IN 
+			(select c.detailid from t_incar c ,t_cardetail d where c.detailid=d.detailid)
+	</select>
+</mapper>

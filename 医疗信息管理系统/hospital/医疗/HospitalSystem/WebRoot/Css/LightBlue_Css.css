@@ -1,0 +1,113 @@
+.GeneralDiv{
+	border:#8eb4ce solid 1px;
+	padding:0px;
+	margin:4px 0 0 1px;
+}
+.GeneralDiv .hd{
+	background-color:#e5f1f9;
+	height:24px;
+	vertical-align:bottom;
+	font-weight:bold;
+	font-size:13px;
+	padding:2px 0 0 2px;
+	text-align:left
+}
+.GeneralDiv .bd{
+	text-align:center;
+}
+.GeneralDiv .bd .tx{
+	width:400px;
+	border:1px solid #cccccc;
+	margin:2px 2px 2px 2px;
+}
+
+.GeneralDiv .ft{
+	height:14px;
+	border-top:#cccccc solid 1px;
+	font-size:10;
+	text-align:right;
+}
+body{
+	/*text-align:center;*/
+	font-size:13px;
+	font-family:Arial;
+}
+.textCss{
+			font-size:13px;
+}
+.textCss .txt,textarea{
+			width:80%;
+			border:1px solid #0088f1;
+			margin:2px 2px 2px 2px;
+	}
+.title{
+	background-color:#e5f1f9;
+	align:center;
+	font-weight:bold;
+	font-size:13px;
+	margin:1px 0px 1px 0px;
+	height:26px;
+}
+.line{
+	border:#ebfff8 solid 0.5px;
+}
+
+table {
+	border:1px solid #ff000;
+	width: 100%;
+	margin: 20px 0 20px 0;
+	font-size:13px;
+	font-family:Arial;
+}
+th, td {
+	padding: 2px 4px 2px 4px;
+	/*text-align: left;*/
+	vertical-align: top;
+}
+table.simple {
+	border-collapse: collapse;
+	margin: 20px 0 20px 0;
+	border: 1px solid #8eb4ce;
+}
+table.simple th {
+	color: #000000;
+	text-align: center;
+	background-color:#e5f1f9;
+	border: 1px solid #e0f1f9;
+}
+table.simple td {
+	border: 1px solid #e0f1f9;
+}
+.line {
+	border:#8eb4ce solid 1px;
+}
+.buttonClass {
+	BORDER-RIGHT: #8eb4ce 1px solid; 
+	PADDING-RIGHT: 2px; 
+	BORDER-TOP: #8eb4ce 1px solid; 
+	PADDING-LEFT: 2px; FONT-SIZE: 12px; 
+	BORDER-LEFT: #8eb4ce 1px solid; 
+	CURSOR: hand; 
+	COLOR: black; 
+	PADDING-TOP: 2px; 
+	BORDER-BOTTOM: #8eb4ce 1px solid;
+	WIDTH:expression(this.value.length>6 ? "100px" : "80px");
+	background-color:#ebf8f8;
+	}
+body{
+	font-size:12px;
+}
+
+.patientButton {
+	BORDER-RIGHT: #8eb4ce 1px solid; 
+	PADDING-RIGHT: 2px; 
+	BORDER-TOP: #8eb4ce 1px solid; 
+	PADDING-LEFT: 2px; FONT-SIZE: 12px; 
+	BORDER-LEFT: #8eb4ce 1px solid; 
+	CURSOR: hand; 
+	COLOR: black; 
+	PADDING-TOP: 2px; 
+	BORDER-BOTTOM: #8eb4ce 1px solid;
+	WIDTH:expression(this.value.length>3 ? "80px" : "45px");
+	background-color:#ebf8f8;
+	}

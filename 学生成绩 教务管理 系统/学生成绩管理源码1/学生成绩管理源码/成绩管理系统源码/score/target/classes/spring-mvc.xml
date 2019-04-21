@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/aop   
+        http://www.springframework.org/schema/aop/spring-aop-4.0.xsd   
+        http://www.springframework.org/schema/beans   
+        http://www.springframework.org/schema/beans/spring-beans-4.0.xsd   
+        http://www.springframework.org/schema/context   
+        http://www.springframework.org/schema/context/spring-context-4.0.xsd   
+        http://www.springframework.org/schema/mvc   
+        http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd   
+        http://www.springframework.org/schema/tx   
+        http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
+
+	<context:component-scan base-package="com.bjpowernode.common.controller" />
+	<context:component-scan base-package="com.bjpowernode.system.controller" />
+	<context:component-scan base-package="com.bjpowernode.buss.controller" />
+   
+   	<mvc:annotation-driven />
+   <!-- 处理请求时返回json字符串的中文乱码问题 
+    <mvc:annotation-driven>
+	    <mvc:message-converters>
+	        <bean class="org.springframework.http.converter.StringHttpMessageConverter">
+	            <property name="supportedMediaTypes">
+	                <list>
+	                    <value>application/json;charset=UTF-8</value>
+	                </list>
+	            </property>
+	        </bean>
+	    </mvc:message-converters>
+	</mvc:annotation-driven>
+	-->
+	
+	
+	<mvc:resources location="/js/" mapping="/js/**" />
+	<mvc:resources location="/css/" mapping="/css/**" />
+	<mvc:resources location="/image/" mapping="/image/**" />
+	<mvc:resources location="/fonts/" mapping="/fonts/**" />
+	
+
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/pages/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+	<!-- 系统错误转发配置[并记录错误日志] -->
+	<bean
+		class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+		<property name="defaultErrorView" value="500"></property>   <!-- 默认为500，系统错误(error.jsp) -->
+		<property name="defaultStatusCode" value="404"></property>
+		<property name="statusCodes"><!-- 配置多个statusCode -->
+			<props>
+				<prop key="error">500</prop>  <!-- error.jsp -->
+			</props>
+		</property>
+		<property name="exceptionMappings">
+			<props>
+				<!-- 这里你可以根据需要定义N多个错误异常转发 -->
+				<prop key="java.sql.SQLException">dbError</prop> <!-- 数据库错误(dbError.jsp) -->
+				<prop key="org.springframework.web.bind.ServletRequestBindingException">bizError</prop> <!-- 参数绑定错误(如：必须参数没传递)(bizError.jsp) -->
+				<prop key="java.lang.IllegalArgumentException">bizError</prop>  <!-- 参数错误(bizError.jsp) -->
+				<prop key="org.springframework.validation.BindException">bizError</prop>  <!-- 参数类型有误(bizError.jsp) -->
+				<prop key="java.lang.Exception">unknowError</prop>  <!-- 其他错误为'未定义错误'(unknowError.jsp) -->
+			</props>
+		</property>
+	</bean>
+	
+	 <!-- 拦截器 -->
+ <mvc:interceptors>
+  <mvc:interceptor>
+   <mvc:mapping path="/**" />
+   <bean class="com.bjpowernode.system.interceptor.AuthInterceptor">
+   <property name="excludeUrls">
+     <list>
+     <value>loginController.do?login</value>
+     <value>loginController.do?doCheck</value>
+     </list>
+    </property>
+    </bean>
+  </mvc:interceptor>
+ </mvc:interceptors>
+
+</beans>  

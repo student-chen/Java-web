@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="StuAMSystem"
+  id="myeclipse.1492404987423"
+  context-root="/StuAMSystem"
+  j2ee-spec="5.0"
+  archive="StuAMSystem.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+

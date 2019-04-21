@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.svse.dao.CardetailDAOI">
+	<!-- 添加 -->
+	<insert id="add" parameterType="CardetailEntity">
+		insert into t_cardetail values(null,#{sortid},#{detailname},#{detailguige},#{detailtime},#{detailremark},#{detailflag})
+	</insert>
+	<!-- 修改 -->
+	<update id="upp" parameterType="CardetailEntity">
+		update t_cardetail set sortid=#{sortid},detailname=#{detailname},detailguige=#{detailguige},
+			detailtime=#{detailtime},detailremark=#{detailremark},detailflag=#{detailflag} where detailid=#{detailid} 
+	</update>
+	<!-- 全查询 -->
+	<select id="alldetail"  resultMap="DetailMap">
+      	select * from t_cardetail d,t_carsort s where d.sortid=s.sortid limit #{0},#{1}
+	</select>
+	<select id="all"  resultMap="DetailMap">
+      	select * from t_cardetail d,t_carsort s where d.sortid=s.sortid 
+	</select>
+	<!-- 根据品牌查系列 -->
+	<select id="allbysort" resultMap="DetailMap">
+		select * from t_cardetail d,t_carsort s where d.sortid=s.sortid and s.sortid=#{0}
+	</select>
+	<resultMap type="CardetailEntity" id="DetailMap">
+		<id column="detailid" property="detailid"/>
+		<result column="detailname" property="detailname"/>
+		<result column="detailguige" property="detailguige"/>
+		<result column="detailtime" property="detailtime"/>
+		<result column="detailremark" property="detailremark"/>
+		<result column="detailflag" property="detailflag"/>
+		
+		<!-- 多对一 -->
+		<association property="sort" column="sortid" javaType="CarsortEntity">
+			<id column="sortid" property="sortid"/>
+			<result column="sortname" property="sortname"/>
+			<result column="sortflag" property="sortflag"/>
+		</association>
+	</resultMap>
+	
+	
+	<!-- 查询单个 -->
+	<select id="one" parameterType="int" resultMap="DetailMap">
+		select * from t_cardetail where detailid=#{detailid}
+	</select>
+
+	<!-- 所有记录 -->
+	<select id="count" resultType="int">
+		select count(*) from t_cardetail
+	</select>
+	
+</mapper>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.svse.dao.ModuleDAOI">
+	
+	<select id="all" resultType="ModuleEntity">
+		select * from t_module
+	</select>
+
+	<select id="allmodule" resultType="ModuleEntity">
+		select * from t_module limit #{0},#{1}
+	</select>
+
+	<select id="count" resultType="int">
+		select count(*) from t_module
+	</select>
+</mapper>

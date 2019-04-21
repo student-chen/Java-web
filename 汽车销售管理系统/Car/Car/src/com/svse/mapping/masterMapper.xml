@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.svse.dao.MasterDAOI">
+	<!-- 添加 -->
+	<insert id="add" parameterType="MasterEntity">
+		insert into t_master values(null,#{mname},#{mpsw},#{mrealname},#{pid},#{gid},#{zid},#{mtel},#{mimg})
+	</insert>
+	<!-- 修改 -->
+	<update id="upp" parameterType="MasterEntity">
+		update t_master set mname=#{mname},mpsw=#{mpsw}, mrealname=#{mrealname},
+			pid=#{pid},gid=#{gid},zid=#{zid},mtel=#{mtel},mimg=#{mimg} where mid=#{mid} 
+	</update>
+	<!-- 全查询 -->
+	<select id="all"  resultMap="MasterMap">
+      	select * from t_master m, t_part p ,t_gw g,t_zc z where p.p_id=m.pid and g.g_id=m.gid and z.z_id=m.zid
+	</select>
+	<resultMap type="MasterEntity" id="MasterMap">
+		<id column="mid" property="mid"/>
+		<result column="mname" property="mname" />
+		<result column="mpsw" property="mpsw" />
+		<result column="mrealname" property="mrealname" />
+		<result column="mtel" property="mtel" />
+		<result column="mimg" property="mimg" />
+		
+		<association property="dept" column="p_id" javaType="DeptEntity">
+			<id column="p_id" property="pid"/>
+			<result column="zjmc" property="zjmc"/>
+			<result column="zjid" property="zjid"/>
+		</association>
+		<association property="zc" column="z_id" javaType="ZcEntity">
+			<id column="z_id" property="zid"/>
+			<result column="z_name" property="zname"/>
+			<result column="z_remark" property="zremark"/>
+		</association>
+		<association property="gw" column="g_id" javaType="GwEntity">
+			<id column="g_id" property="gid"/>
+			<result column="g_name" property="gname"/>
+			<result column="g_remark" property="gremark"/>
+		</association>
+	</resultMap>
+	
+	<!-- 查询单个 -->
+	<select id="one" parameterType="int" resultMap="MasterMap">
+		select * from t_master m, t_part p ,t_gw g,t_zc z where p.p_id=m.pid and g.g_id=m.gid and z.z_id=m.zid and mid=#{mid}
+	</select>
+	
+	<!-- 登录 -->
+	<select id="login" parameterType="MasterEntity" resultType="MasterEntity">
+		select * from t_master where mname=#{mname} and mpsw=#{mpsw}
+	</select>
+	
+	<!-- 判断重复 -->
+	<select id="repeat" parameterType="MasterEntity" resultType="int">
+		select count(*) from t_master where mname=#{mname} or mtel=#{mtel}
+	</select>
+	
+	<!-- 登录后的权限 -->
+	<select id="limit" parameterType="int" resultType="ActionsEntity">
+		select DISTINCT a.actionname from t_action a,t_agroup ag ,t_masterg mg,t_master m
+			where a.actionid=ag.actionid and ag.groupid=mg.groupid and m.mid=mg.mid and m.mid=#{mid};
+	</select>
+	<!-- 登录后的权限 -->
+	<select id="limit2" parameterType="int" resultType="MasterAEntity">
+		select DISTINCT mg.groupid from t_masterg mg,t_master m
+			where  m.mid=mg.mid and m.mid=#{mid}
+	</select>
+	
+	<!-- 查询总经理 -->
+	<select id="getone" resultType="MasterEntity">
+		select * from t_master m,t_part p,t_gw g where m.pid=p.p_id and m.gid=g.g_id and m.pid=2 and m.gid=1
+	</select>
+
+</mapper>

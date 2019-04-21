@@ -1,0 +1,112 @@
+@charset "utf-8";
+* {
+	margin: 0;
+	padding: 0;
+}
+a:link {
+	color: #666;
+	text-decoration: none;
+}
+a:visited {
+	color: #666;
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: none;
+	color: #F03;
+}
+a:active {
+	text-decoration: none;
+}
+body {
+ background: background:url(../images/body-bg.png);
+}
+.window {
+	margin-top: 20px;
+}
+.tit {
+	color: #999;
+	font-family: "黑体";
+	font-size: 36px;
+	width: 240px;
+	height: 40px;
+	line-height: 40px;
+	overflow: hidden;
+	margin-bottom: 32px;
+}
+.searchbox {
+	width: 660px;
+	height: 40px;
+	margin-bottom: 50px;
+}
+table {
+	color: #666;
+	font-family: "宋体";
+	font-size: 16px;
+	border-collapse: collapse;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+table td {
+	height: 28px;
+}
+.mask {
+	position: absolute;
+	width: 660px;
+	height: 480px;
+	top: 80px;
+	background: url(../images/body-bg.png);
+	z-index: 3;
+	display: none;
+}
+.close {
+	width: 42px;
+	height: 40px;
+	padding-right: 2px;
+	margin-top: 2px;
+	float: right;
+	margin-bottom: 20px;
+	background: url(../images/close.png) no-repeat;
+}
+.showScore {
+	width: 500px;
+	float: left;
+}
+.showScore table {
+	color: #333;
+	font-family: "宋体";
+	font-size: 20px;
+	width: 410px;
+	height: 28px;
+	float: left;
+	margin-left: 100px;
+	margin-top: 40px;
+	line-height: 40px;
+	overflow: hidden;
+	margin-bottom: 32px;
+}
+.mouseover {
+	background: #BBB;
+}
+.a_1 {
+	padding: 0px 7px 0px 7px;
+	margin: 0px 3px 0px 3px;
+}
+.a_2 {
+	padding: 0px 7px 0px 7px;
+	margin: 0px 3px 0px 3px;
+	background-color: #456;
+}
+.a_3 {
+	margin: 0px 3px 0px 3px;
+	border: 1px solid #666;
+	padding: 3px 7px 3px 7px;
+}
+.a_4 {
+	margin: 0px 3px 0px 3px;
+	border: 1px solid #666;
+	padding: 3px 7px 3px 7px;
+}
+.select {
+	background: #BBB;
+}

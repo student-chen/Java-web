@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.svse.dao.PurchaseDAOI">
+	
+	<!-- 添加 -->
+	<insert id="add" parameterType="PurchaseEntity">
+		insert into t_purchase values(null,#{mid},#{purtitle},#{purremark},#{pmoney},#{ptime},#{purchaseflag},#{sugid},#{suggestion})
+	</insert>
+	<!-- 修改 -->
+	<update id="upp" parameterType="PurchaseEntity">
+		update t_purchase set pmoney=#{pmoney},purchaseflag=#{purchaseflag},suggestion=#{suggestion} where purchaseid=#{purchaseid} 
+	</update>
+	
+	<!-- 全查询 -->
+	<select id="all"  resultType="PurchaseEntity">
+      	select * from t_purchase 
+	</select>
+	<select id="allpurchase"  resultType="PurchaseEntity">
+      	select p.purchaseid,p.purtitle,p.pmoney,dept.zjmc as deptname,m.mrealname as mname ,
+      		p.purchaseflag,p.purremark ,c.mrealname,p.suggestion,p.ptime
+			from t_purchase p,t_master m,t_master c,t_part dept
+      			where p.mid=m.mid and c.mid=p.sugid and m.pid=dept.p_id and (p.mid=#{2} or p.sugid=#{2})
+ 					limit #{0},#{1}
+	</select>
+	
+	<select id="all1"  resultType="PurchaseEntity">
+      	select p.purchaseid,p.purtitle,p.pmoney,dept.zjmc as deptname,m.mrealname as mname ,
+      		p.purchaseflag,p.purremark ,c.mrealname,p.suggestion,p.ptime
+			from t_purchase p,t_master m,t_master c,t_part dept
+      			where p.mid=m.mid and c.mid=p.sugid and m.pid=dept.p_id and (p.purchaseflag=2 or p.purchaseflag=4) and (p.mid=#{2} or p.sugid=#{2})
+ 					limit #{0},#{1}
+	</select>
+	
+	<select id="all2"  resultType="PurchaseEntity">
+      	select p.purchaseid,p.purtitle,p.pmoney,dept.zjmc as deptname,m.mrealname as mname ,
+      		p.purchaseflag,p.purremark ,c.mrealname,p.suggestion,p.ptime
+			from t_purchase p,t_master m,t_master c,t_part dept
+      			where p.mid=m.mid and c.mid=p.sugid and m.pid=dept.p_id and p.purchaseflag=#{2} and (p.mid=#{3} or p.sugid=#{3})
+ 					limit #{0},#{1}
+	</select>
+	
+	<select id="all3"  resultType="PurchaseEntity">
+      	select p.purchaseid,p.purtitle,p.pmoney,dept.zjmc as deptname,m.mrealname as mname ,
+      		p.purchaseflag,p.purremark ,c.mrealname,p.suggestion,p.ptime
+			from t_purchase p,t_master m,t_master c,t_part dept
+      			where p.mid=m.mid and c.mid=p.sugid and m.pid=dept.p_id and p.purchaseflag!=0 and (p.mid=#{2} or p.sugid=#{2})
+ 					limit #{0},#{1}
+	</select>
+	
+	<!-- 查询单个 -->
+	<select id="one" parameterType="int" resultType="PurchaseEntity">
+		select * from t_purchase where purchaseid=#{purchaseid}
+	</select>
+	
+	<select id="last" resultType="int">
+		select purchaseid from t_purchase order by purchaseid desc limit 1
+	</select>
+	
+	<select id="getcount" resultType="int" parameterType="int">
+		select count(*) from t_purchase p, t_master m where m.mid=p.sugid and m.mid=#{mid} and p.purchaseflag=1
+	</select>
+
+	<!-- 所有记录 -->
+	<select id="count" resultType="int">
+		select count(*) from t_purchase p,t_master m,t_master c,t_part dept
+      			where p.mid=m.mid and c.mid=p.sugid and m.pid=dept.p_id and (p.mid=#{0} or p.sugid=#{0})
+	</select>
+	
+	<!-- 所有记录 -->
+	<select id="count1" resultType="int">
+		select count(*)	from t_purchase p,t_master m,t_master c,t_part dept
+      			where p.mid=m.mid and c.mid=p.sugid and m.pid=dept.p_id and (p.purchaseflag=2 or p.purchaseflag=4) and (p.mid=#{0} or p.sugid=#{0})
+	</select>
+	<!-- 所有记录 -->
+	<select id="count2" resultType="int">
+		select count(*) from t_purchase p,t_master m,t_master c,t_part dept
+      			where p.mid=m.mid and c.mid=p.sugid and m.pid=dept.p_id and p.purchaseflag=#{0} and (p.mid=#{1} or p.sugid=#{1})
+	</select>
+	
+	<!-- 所有记录 -->
+	<select id="count3" resultType="int">
+		select count(*) from t_purchase p,t_master m,t_master c,t_part dept
+      			where p.mid=m.mid and c.mid=p.sugid and m.pid=dept.p_id and p.purchaseflag!=0 and (p.mid=#{0} or p.sugid=#{0})
+	</select>
+</mapper>
+	

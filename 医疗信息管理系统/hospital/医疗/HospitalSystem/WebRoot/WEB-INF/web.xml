@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.4" 
+	xmlns="http://java.sun.com/xml/ns/j2ee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee 
+	http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+	<servlet>
+	  <servlet-name>HospitalSystem</servlet-name>
+	  <servlet-class>com.tsinghuait.st0717.hospitalsystem.servlet.ReceiptServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+	  <servlet-name>HospitalSystem</servlet-name>
+	  <url-pattern>/ReceiptServlet</url-pattern>
+	</servlet-mapping>	
+	
+	<!-- 跳到登陆主页面 -->
+	<servlet>
+	<servlet-name>st071701</servlet-name>
+	<servlet-class>com.tsinghuait.st0717.hospitalsystem.servlet.Hospital</servlet-class>
+	</servlet>
+	<servlet-mapping>
+	<servlet-name>st071701</servlet-name>
+	<url-pattern>/h</url-pattern>
+	</servlet-mapping>
+		
+	<!-- 过滤器,对中文进行过滤 -->
+	<filter>
+	    <filter-name>encoding</filter-name>
+	    <filter-class>com.tsinghuait.st0717.hospitalsystem.fitler.ChineseFilterGBK</filter-class>
+	    <init-param>
+	       <param-name>encoding</param-name>
+	       <param-value>gbk</param-value>
+	    </init-param>
+	</filter>
+	<filter-mapping>
+	    <filter-name>encoding</filter-name>
+	    <url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	
+	<!-- 跳到登陆主页面 -->
+	<servlet>
+	<servlet-name>DoctorPostServlets</servlet-name>
+	<servlet-class>com.tsinghuait.st0717.hospitalsystem.servlet.DoctorPostServlets</servlet-class>
+	</servlet>
+	<servlet-mapping>
+	<servlet-name>DoctorPostServlets</servlet-name>
+	<url-pattern>/doctorPostServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!--表头查询处理 -->
+	<servlet>
+	<servlet-name>TopQueryServlet</servlet-name>
+	<servlet-class>com.tsinghuait.st0717.hospitalsystem.servlet.TopQueryServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+	<servlet-name>TopQueryServlet</servlet-name>
+	<url-pattern>/topQueryServlet</url-pattern>
+	</servlet-mapping>
+		
+	
+	<!--登录处理 跳到主页面-->
+	<servlet>
+	<servlet-name>LoginServlet</servlet-name>
+	<servlet-class>com.tsinghuait.st0717.hospitalsystem.servlet.LoginServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+	<servlet-name>LoginServlet</servlet-name>
+	<url-pattern>/loginServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!--病人信息 查看-->
+	<servlet>
+	<servlet-name>PatientServlet</servlet-name>
+	<servlet-class>com.tsinghuait.st0717.hospitalsystem.servlet.PatientServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+	<servlet-name>PatientServlet</servlet-name>
+	<url-pattern>/patientServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!--医生表查询处理 -->
+	<servlet>
+		<servlet-name>DoctorServlet</servlet-name>
+		<servlet-class>com.tsinghuait.st0717.hospitalsystem.servlet.DoctorServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DoctorServlet</servlet-name>
+		<url-pattern>/doctorServlet</url-pattern>
+	</servlet-mapping>
+		
+		<!--医生表查询处理 -->
+	<servlet>
+		<servlet-name>NurseServlet</servlet-name>
+		<servlet-class>com.tsinghuait.st0717.hospitalsystem.servlet.NurseServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>NurseServlet</servlet-name>
+		<url-pattern>/nurseServlet</url-pattern>
+	</servlet-mapping>
+	
+		<!--修改密码（医生＼护士） -->
+	<servlet>
+		<servlet-name>UpdatePasswordServlet</servlet-name>
+		<servlet-class>com.tsinghuait.st0717.hospitalsystem.servlet.UpdatePasswordServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>UpdatePasswordServlet</servlet-name>
+		<url-pattern>/updatePasswordServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 职称 -->
+	<servlet>
+	<servlet-name>Post</servlet-name>
+	<servlet-class>com.tsinghuait.st0717.hospitalsystem.servlet.PostServlets</servlet-class>
+	</servlet>
+	<servlet-mapping>
+	<servlet-name>Post</servlet-name>
+	<url-pattern>/postServlets</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 科别 -->
+	<servlet>
+	<servlet-name>Medicalcourses</servlet-name>
+	<servlet-class>com.tsinghuait.st0717.hospitalsystem.servlet.MedicalcoursesServlets</servlet-class>
+	</servlet>
+	<servlet-mapping>
+	<servlet-name>Medicalcourses</servlet-name>
+	<url-pattern>/medicalcoursesServlets</url-pattern>
+	</servlet-mapping>
+	
+	
+	<!-- 查看病人信息 -->	
+	<servlet>
+		<servlet-name>PatientListServlet</servlet-name>
+		<servlet-class>com.tsinghuait.st0717.hospitalsystem.servlet.PatientListServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>PatientListServlet</servlet-name>
+		<url-pattern>/patientListServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 收据表的查看-->
+	<servlet>
+		<servlet-name>receiptServlet</servlet-name>
+		<servlet-class>com.tsinghuait.st0717.hospitalsystem.servlet.ReceiptServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>receiptServlet</servlet-name>
+		<url-pattern>/receiptServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 护士病床 -->
+	<servlet>
+		<servlet-name>nurse_sickbedServlet</servlet-name>
+		<servlet-class>com.tsinghuait.st0717.hospitalsystem.servlet.Nurse_sickbedServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>nurse_sickbedServlet</servlet-name>
+		<url-pattern>/nurse_sickbedServlet</url-pattern>
+	</servlet-mapping>
+	
+	
+	<!-- 手术室 -->
+	<servlet>
+		<servlet-name>operation</servlet-name>
+		<servlet-class>com.tsinghuait.st0717.hospitalsystem.servlet.OperatingRoomServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>operation</servlet-name>
+		<url-pattern>/operatingRoomServlet</url-pattern>
+	</servlet-mapping>
+	
+	
+	<!-- 护士手术室的查看-->
+	<servlet>
+		<servlet-name>nurse_operationServlet</servlet-name>
+		<servlet-class>com.tsinghuait.st0717.hospitalsystem.servlet.Nurse_operationRoomServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>nurse_operationServlet</servlet-name>
+		<url-pattern>/nurse_operationRoomServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- -->
+	<servlet>
+		<servlet-name>ReceiptLiuHaiQingServlet</servlet-name>
+		<servlet-class>com.tsinghuait.st0717.hospitalsystem.servlet.ReceiptLiuHaiQingServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ReceiptLiuHaiQingServlet</servlet-name>
+		<url-pattern>/receiptLiuHaiQingServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- -->
+	<servlet>
+		<servlet-name>StatServlet</servlet-name>
+		<servlet-class>com.tsinghuait.st0717.hospitalsystem.servlet.StatServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>StatServlet</servlet-name>
+		<url-pattern>/StatServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- -->
+	<servlet>
+		<servlet-name>Stat1Servlet</servlet-name>
+		<servlet-class>com.tsinghuait.st0717.hospitalsystem.servlet.Stat1Servlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Stat1Servlet</servlet-name>
+		<url-pattern>/Stat1Servlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 诊断书 -->
+	<servlet>
+	<servlet-name>DiagnosisServlet</servlet-name>
+	<servlet-class>com.tsinghuait.st0717.hospitalsystem.servlet.DiagnosisServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+	<servlet-name>DiagnosisServlet</servlet-name>
+	<url-pattern>/diagnosisServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 手术 -->
+	<servlet>
+	<servlet-name>OperationServlet</servlet-name>
+	<servlet-class>com.tsinghuait.st0717.hospitalsystem.servlet.OperationServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+	<servlet-name>OperationServlet</servlet-name>
+	<url-pattern>/operationServlet</url-pattern>
+	</servlet-mapping>
+	<!-- 住院 -->
+	<servlet>
+	<servlet-name>InHospitalServlet</servlet-name>
+	<servlet-class>com.tsinghuait.st0717.hospitalsystem.servlet.InHospitalServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+	<servlet-name>InHospitalServlet</servlet-name>
+	<url-pattern>/inHospitalServlet</url-pattern>
+	</servlet-mapping>
+	
+	  <servlet>
+	       <servlet-name>OperationRoomWuJiRuiServlet</servlet-name>
+	       <servlet-class>com.tsinghuait.st0717.hospitalsystem.servlet.OperationRoomWuJiRuiServlet</servlet-class>
+	  </servlet>
+	  <servlet-mapping>
+	       <servlet-name>OperationRoomWuJiRuiServlet</servlet-name>
+	       <url-pattern>/operationRoomWuJiRuiServlet</url-pattern>
+	  </servlet-mapping>
+	  
+	  <!--病床表的操作-->
+      <servlet>
+	       <servlet-name>SickBedServlet</servlet-name>
+	       <servlet-class>com.tsinghuait.st0717.hospitalsystem.servlet.SickBedServlet</servlet-class>
+	  </servlet>
+	  <servlet-mapping>
+	       <servlet-name>SickBedServlet</servlet-name>
+	       <url-pattern>/sickBedServlet</url-pattern>
+	  </servlet-mapping>  
+	  
+	  
+	  <servlet>
+	      <servlet-name>UpdateOperationRoomServlet</servlet-name>
+	      <servlet-class>com.tsinghuait.st0717.hospitalsystem.servlet.UpdateOperationRoomServlet</servlet-class>
+	  </servlet>
+      <servlet-mapping>
+	       <servlet-name>UpdateOperationRoomServlet</servlet-name>
+	       <url-pattern>/updateOperationRoomServlet</url-pattern>
+	  </servlet-mapping>    
+	  
+	  
+	 <servlet>
+         <servlet-name>updateSickBedServlet</servlet-name>
+	     <servlet-class>com.tsinghuait.st0717.hospitalsystem.servlet.updateSickBedServlet</servlet-class>
+	 </servlet>
+	 <servlet-mapping>
+	       <servlet-name>updateSickBedServlet</servlet-name>
+	       <url-pattern>/updateSickBedServlet</url-pattern>
+	 </servlet-mapping>
+	 
+	 	 <servlet>
+         <servlet-name>ShowNurseServlet</servlet-name>
+	     <servlet-class>com.tsinghuait.st0717.hospitalsystem.servlet.ShowNurseServlet</servlet-class>
+	 </servlet>
+	 <servlet-mapping>
+	       <servlet-name>ShowNurseServlet</servlet-name>
+	       <url-pattern>/showNurseServlet</url-pattern>
+	 </servlet-mapping>
+	 <!-- -->
+	 <servlet>
+         <servlet-name>ShowSickBedServlet</servlet-name>
+	     <servlet-class>com.tsinghuait.st0717.hospitalsystem.servlet.ShowSickBedServlet</servlet-class>
+	 </servlet>
+	 <servlet-mapping>
+	       <servlet-name>ShowSickBedServlet</servlet-name>
+	       <url-pattern>/showSickBedServlet</url-pattern>
+	 </servlet-mapping>
+</web-app>

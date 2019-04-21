@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.svse.dao.FujianDAOI">
+	<!-- 添加 -->
+	<insert id="add" parameterType="FujianEntity">
+		insert into t_fujian values(null,#{caroutmxid},#{inhandoutid},#{zscount})
+	</insert>
+	<!-- 修改 -->
+	<update id="upp" parameterType="FujianEntity">
+		update t_fujian set caroutmxid=#{caroutmxid},inhandoutid=#{inhandoutid},zscount=#{zscount}
+			where fjid=#{fjid} 
+	</update>
+	<!-- 全查询 -->
+	<select id="all" resultType="FujianEntity">
+      	select distinct f.inhandoutid,n.handoutname from t_fujian f,t_caroutmx c,t_inhandout h,t_handout n
+      		where f.caroutmxid=c.caroutmxid and f.inhandoutid=h.inhandoutid and h.handoutid=n.handoutid
+      		 limit #{0},#{1}
+	</select>
+	<select id="saleall" resultType="FujianEntity">
+      	select * from t_fujian f,t_caroutmx c,t_inhandout h,t_handout n,t_custom cs,t_master m
+      		where m.mid=c.mid and c.customid=cs.customid and f.caroutmxid=c.caroutmxid and f.inhandoutid=h.inhandoutid and h.handoutid=n.handoutid
+      		 limit #{0},#{1}
+	</select>
+	<select id="alls" resultType="FujianEntity">
+      	select cus.customname,cus.customtel,s.handoutname from t_fujian f,t_caroutmx c,t_inhandout h,t_custom cus ,t_handout s 
+			where f.caroutmxid=c.caroutmxid and f.inhandoutid=h.inhandoutid and c.customid=cus.customid and h.handoutid=s.handoutid  and c.incarmxid=#{0}
+	</select>
+	<select id="all1" resultType="FujianEntity">
+      	select * from t_fujian f,t_caroutmx c,t_inhandout h,t_handout n,t_master m,t_custom cu
+      		where cu.customid=c.customid and f.caroutmxid=c.caroutmxid and f.inhandoutid=h.inhandoutid and m.mid=c.mid and h.handoutid=n.handoutid 
+      		and f.inhandoutid=#{2} limit #{0},#{1}
+	</select>
+	<select id="allfujian" resultType="FujianEntity">
+      	select * from t_fujian f,t_caroutmx c,t_inhandout h
+      		where f.caroutmxid=c.caroutmxid and f.inhandoutid=h.inhandoutid
+	</select>
+	
+	<!-- 查询单个 -->
+	<select id="one" parameterType="int" resultType="FujianEntity">
+		select * from t_fujian where fjid=#{fjid}
+	</select>
+
+	<!-- 所有记录 -->
+	<select id="count" resultType="int">
+		select count(distinct inhandoutid) from t_fujian
+	</select>
+	<select id="counts" resultType="int">
+		select count(*) from t_fujian where inhandoutid=#{0}
+	</select>
+</mapper>

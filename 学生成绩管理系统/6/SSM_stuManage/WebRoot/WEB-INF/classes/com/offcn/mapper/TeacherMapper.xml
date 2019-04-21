@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.offcn.mapper.TeacherMapper">
+  <resultMap id="BaseResultMap" type="com.offcn.pojo.Teacher">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="usertype" jdbcType="INTEGER" property="usertype" />
+    <result column="loginname" jdbcType="VARCHAR" property="loginname" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="workId" jdbcType="VARCHAR" property="workid" />
+  </resultMap>
+  
+   <select id="getTeacherPager" resultType="Teacher">
+        select * from teacher limit #{skip},#{size}
+    </select>
+    
+    <select id="getTeacherId" parameterType="int" resultType="Teacher">
+        select * from teacher where id=#{id}
+    </select>
+    
+    <select id="getTeacherCount" resultType="int">select count(*) from teacher</select>
+    
+    <insert id="insert" parameterType="Teacher">
+       insert into teacher (id, name,usertype, password,  workId,loginname)
+       values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{usertype,jdbcType=INTEGER}, #{password,jdbcType=VARCHAR},#{workid,jdbcType=VARCHAR}, #{loginname,jdbcType=VARCHAR})
+    </insert>
+   
+    <delete id="delete">
+        delete from teacher where id=#{id}
+    </delete>
+    
+    <update id="update" parameterType="Teacher">
+         update teacher
+	    <set>
+	      <if test="name != null">
+	        name = #{name,jdbcType=VARCHAR},
+	      </if>
+	      <if test="usertype != null">
+	        usertype = #{usertype,jdbcType=INTEGER},
+	      </if>
+	      <if test="password != null">
+	        password = #{password,jdbcType=VARCHAR},
+	      </if>
+	      <if test="workid != null">
+	        workId = #{workid,jdbcType=VARCHAR},
+	      </if>
+	      <if test="loginname != null">
+            loginname = #{loginname,jdbcType=VARCHAR},
+          </if>
+	    </set>
+	    where id = #{id,jdbcType=INTEGER}
+    </update>
+    
+    <!--获取排课需要的所有老师  -->
+    <select id="getAllTeacher" resultType="Teacher">
+      select * from teacher
+    </select>
+    
+    <select id="tealogin" parameterType="teacher" resultType="teacher">
+      select * from teacher where loginname=#{loginname} and password=#{password}
+    </select>
+    
+    <!-- 选修课 -->
+    <select id="getxxStudent" parameterType="int" resultType="com.offcn.pojo.StudentView">
+      select c.name as couname,c.id as cid,s.* from course c,student 
+          s,sc where c.type=1 and sc.sid=s.id and sc.tid=#{id} and  c.id=sc.cid;
+    </select>
+    
+    <!-- 必修课 -->
+    <select id="getbxStudent" parameterType="int" resultType="com.offcn.pojo.StudentView">
+      select c.name as couname,c.id as cid,s.* from teacher t,student s,ctc,course c 
+    where  c.type=0  and  t.id=#{id} and ctc.claid=s.classid and  ctc.couid=c.id and ctc.tid=t.id;
+    </select>
+  
+  <!-- <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, name, usertype, loginname, password, workId
+  </sql>
+  <select id="selectByExample" parameterType="com.offcn.pojo.TeacherExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from teacher
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from teacher
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from teacher
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.offcn.pojo.TeacherExample">
+    delete from teacher
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.offcn.pojo.Teacher">
+    insert into teacher (id, name, usertype, 
+      loginname, password, workId
+      )
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{usertype,jdbcType=INTEGER}, 
+      #{loginname,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{workid,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.offcn.pojo.Teacher">
+    insert into teacher
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="usertype != null">
+        usertype,
+      </if>
+      <if test="loginname != null">
+        loginname,
+      </if>
+      <if test="password != null">
+        password,
+      </if>
+      <if test="workid != null">
+        workId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="usertype != null">
+        #{usertype,jdbcType=INTEGER},
+      </if>
+      <if test="loginname != null">
+        #{loginname,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="workid != null">
+        #{workid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.offcn.pojo.TeacherExample" resultType="java.lang.Long">
+    select count(*) from teacher
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update teacher
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.name != null">
+        name = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.usertype != null">
+        usertype = #{record.usertype,jdbcType=INTEGER},
+      </if>
+      <if test="record.loginname != null">
+        loginname = #{record.loginname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.password != null">
+        password = #{record.password,jdbcType=VARCHAR},
+      </if>
+      <if test="record.workid != null">
+        workId = #{record.workid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update teacher
+    set id = #{record.id,jdbcType=INTEGER},
+      name = #{record.name,jdbcType=VARCHAR},
+      usertype = #{record.usertype,jdbcType=INTEGER},
+      loginname = #{record.loginname,jdbcType=VARCHAR},
+      password = #{record.password,jdbcType=VARCHAR},
+      workId = #{record.workid,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.offcn.pojo.Teacher">
+    update teacher
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="usertype != null">
+        usertype = #{usertype,jdbcType=INTEGER},
+      </if>
+      <if test="loginname != null">
+        loginname = #{loginname,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="workid != null">
+        workId = #{workid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.offcn.pojo.Teacher">
+    update teacher
+    set name = #{name,jdbcType=VARCHAR},
+      usertype = #{usertype,jdbcType=INTEGER},
+      loginname = #{loginname,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      workId = #{workid,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update> -->
+</mapper>

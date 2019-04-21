@@ -1,0 +1,37 @@
+.white {
+	font-size: 13px;
+	COLOR: #ffffff;
+}
+
+TD {
+	FONT-SIZE: 13px; COLOR: #000000;
+}
+A:link {
+	FONT-SIZE: 12px; COLOR: #000000; TEXT-DECORATION: none;
+}
+A:visited {
+	FONT-SIZE: 12px; COLOR: #000000; TEXT-DECORATION: none;
+}
+A:hover {
+	FONT-SIZE: 12px; COLOR: #416d9c; TEXT-DECORATION: none;
+}
+A:active {
+	FONT-SIZE: 12px; COLOR: #416d9c; TEXT-DECORATION: none;
+}
+.button {
+	border: #000000; BORDER-RIGHT: 1px; 
+	BORDER-TOP: 1px; FONT-SIZE: 15px; 
+	BORDER-LEFT: 1px; COLOR: #ffffff; 
+	PADDING-TOP: 2px; PADDING-bottom: 2px; 
+	BORDER-BOTTOM: 1px; HEIGHT: 18pt; 
+	BACKGROUND-COLOR: #4c82af;
+}
+
+.form {
+BORDER-RIGHT: 1px #ffffff; BORDER-TOP: 1px #ffffff; FONT-SIZE: 13px; BORDER-LEFT: 1px #ffffff; COLOR: #ffffff; PADDING-TOP: 2px; BORDER-BOTTOM: 1px #ffffff; HEIGHT: 12pt; BACKGROUND-COLOR: #4c82af;
+}
+
+BODY {
+	SCROLLBAR-FACE-COLOR: #296dcf; FONT-SIZE: 12px; SCROLLBAR-HIGHLIGHT-COLOR: #000000; SCROLLBAR-SHADOW-COLOR: #ffffff; COLOR: #000000; SCROLLBAR-3DLIGHT-COLOR: #ffffff; SCROLLBAR-ARROW-COLOR: #ffffff; SCROLLBAR-TRACK-COLOR: #ffffff; SCROLLBAR-DARKSHADOW-COLOR: #ffffff
+}
+

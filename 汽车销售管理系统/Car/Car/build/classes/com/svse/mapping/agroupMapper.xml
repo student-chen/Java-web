@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.svse.dao.AgroupDAOI">
+	<!-- 添加 -->
+	<insert id="add" parameterType="AGroupEntity">
+		insert into t_agroup values(null,#{actionid},#{groupid})
+	</insert>
+	<!-- 修改 -->
+	<update id="upp" parameterType="AGroupEntity">
+		update t_agroup set actionid=#{actionid},groupid=#{groupid} where actiongroupid=#{actiongroupid} 
+	</update>
+	<!-- 删除 -->
+	<delete id="del" parameterType="int">
+		delete from t_agroup where actiongroupid=#{actiongroupid}
+	</delete>
+	<!-- 全查询 -->
+	<select id="all"  resultType="AGroupEntity">
+      	select * from t_agroup
+	</select>
+	<select id="allm" parameterType="int" resultType="AGroupEntity">
+      	select * from t_agroup where moduleid=#{moduleid}
+	</select>
+	
+	<select id="allag"  resultType="AGroupEntity">
+      	select * from t_agroup where actionid=#{0} and groupid=#{1}
+	</select>
+	
+	<select id="allAGroup"  resultType="AGroupEntity">
+      	select * from t_agroup limit #{0},#{1}
+	</select>
+
+	<!-- 所有记录 -->
+	<select id="count" resultType="int">
+		select count(*) from t_agroup
+	</select>
+</mapper>

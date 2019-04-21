@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.svse.dao.SaleZengpinDAOI">
+	<!-- 添加 -->
+	<insert id="add" parameterType="SaleZengpinEntity">
+		insert into t_salezengpin
+		  values(null,#{inhandoutid},#{kehuname},#{kehutel},#{salecount},#{saletime},#{mid},#{saleremark})
+	</insert>
+	<!-- 修改 -->
+	<update id="upp" parameterType="SaleZengpinEntity">
+		update t_salezengpin set
+		  inhandoutid=#{inhandoutid},kehuname=#{kehuname},kehutel=#{kehutel},
+		  salecount=#{salecount},saletime=#{saletime},mid=#{mid},saleremark=#{saleremark}
+		   where salezpid=#{salezpid}
+	</update>
+	<!-- 全查询 -->
+	<select id="all" resultType="SaleZengpinEntity">
+		select * from t_salezengpin s,t_master m, t_inhandout h,t_handout n
+		  where s.inhandoutid=h.inhandoutid and s.mid=m.mid and h.handoutid=n.handoutid and s.inhandoutid=#{2} limit #{0},#{1}
+	</select>
+	<select id="alls" resultType="SaleZengpinEntity">
+		select distinct s.inhandoutid,n.handoutname from t_salezengpin s,t_inhandout h,t_handout n
+		  where s.inhandoutid=h.inhandoutid and h.handoutid=n.handoutid limit #{0},#{1}
+	</select>
+	<select id="saleall" resultType="SaleZengpinEntity">
+		select * from t_salezengpin s,t_inhandout h,t_handout n,t_master m
+      		where m.mid=s.mid and s.inhandoutid=h.inhandoutid and h.handoutid=n.handoutid limit #{0},#{1}
+	</select>
+	<select id="allsalezp" resultType="SaleZengpinEntity">
+		select * from t_salezengpin s,t_master m, t_inhandout h
+		  where s.inhandoutid=h.inhandoutid and s.mid=m.mid
+	</select>
+
+	<!-- 查询单个 -->
+	<select id="one" parameterType="int" resultType="SaleZengpinEntity">
+		select * from
+		  t_salezengpin s,t_master m, t_inhandout h
+		   where s.inhandoutid=h.inhandoutid and s.mid=m.mid and salezpid=#{salezpid}
+	</select>
+
+	<!-- 所有记录 -->
+	<select id="count" resultType="int">
+		select count(*) from t_salezengpin where inhandoutid=#{0}
+	</select>
+	<select id="counts" resultType="int">
+		select count(distinct inhandoutid) from t_salezengpin
+	</select>
+
+</mapper>

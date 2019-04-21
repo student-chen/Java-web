@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.svse.dao.IncarmxDAOI">
+	<!-- 添加 -->
+	<insert id="add" parameterType="InCarmxEntity">
+		insert into t_incarmx values(null,#{incarid},#{detailid},#{storeid},
+			#{newstoreid},#{incarprice},#{outcarprice},#{carshouzi},#{carcjh},#{carhgz},
+			#{carfdjh},#{carcolor},#{carimg},#{carchanshu},#{carrukucount},#{carrukutime},#{pid},#{mid},#{carkucunflag})
+	</insert>
+	
+	<!-- 修改 -->
+	<update id="upp" parameterType="InCarmxEntity">
+		update t_incarmx set carkucunflag=#{carkucunflag} where incarmxid=#{incarmxid}
+	</update>
+	
+	<!-- 全查询 -->
+	<select id="all"  resultType="InCarmxEntity">
+      	select * from t_incarmx 
+	</select>
+	<select id="all1"  resultType="InCarmxEntity">
+      	select * from t_incarmx mx,t_incar c ,t_part p,t_master m,t_storehouse s ,t_cardetail d
+      		where mx.incarid=c.incarid and  mx.pid=p.p_id and mx.mid=m.mid and d.detailid=mx.detailid
+      			and mx.storeid=s.storeid and mx.incarid=#{2} limit #{0},#{1}
+	</select>
+	<select id="one"  resultType="InCarmxEntity">
+      	select * from t_incarmx mx,t_incar c ,t_part p,t_master m,t_storehouse s ,t_cardetail d
+      		where mx.incarid=c.incarid and  mx.pid=p.p_id and mx.mid=m.mid and d.detailid=mx.detailid
+      			and mx.storeid=s.storeid and mx.incarmxid=#{0}
+	</select>
+	<select id="all2"  resultType="InCarmxEntity">
+      	select * from t_incarmx where incarid=#{0} and carkucunflag=0
+	</select>
+	
+	<!-- 全查询 -->
+	<select id="limit" resultType="InCarmxEntity">
+		select * from t_incarmx mx,t_incar c ,t_part p,t_master m,t_storehouse s ,t_cardetail d,t_carsort ss
+      		where ss.sortid=d.sortid and mx.incarid=c.incarid and  mx.pid=p.p_id and mx.mid=m.mid and d.detailid=mx.detailid
+      			and mx.storeid=s.storeid limit #{0},#{1}
+	</select>
+	<!-- 所有记录 -->
+	<select id="allcount" resultType="int">
+		select count(*) from t_incarmx 
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="alllimit" resultType="InCarmxEntity">
+		select * from t_incarmx mx,t_incar c ,t_part p,t_master m,t_storehouse s ,t_cardetail d,t_carsort ss
+      		where ss.sortid=d.sortid and mx.incarid=c.incarid and  mx.pid=p.p_id and mx.mid=m.mid and d.detailid=mx.detailid
+      			and mx.storeid=s.storeid and mx.detailid=#{0} and mx.carkucunflag=#{1} limit #{2},#{3}
+	</select>
+	<!-- 所有记录 -->
+	<select id="counts" resultType="int">
+		select count(*) from t_incarmx mx,t_incar c ,t_part p,t_master m,t_storehouse s ,t_cardetail d
+      		where mx.incarid=c.incarid and  mx.pid=p.p_id and mx.mid=m.mid and d.detailid=mx.detailid
+      			and mx.storeid=s.storeid and mx.detailid=#{0} and mx.carkucunflag=#{1}
+	</select>
+	
+	<!-- 条件查询(系列) -->
+	<select id="alllimit2" resultType="InCarmxEntity">
+		select * from t_incarmx mx,t_incar c ,t_part p,t_master m,t_storehouse s ,t_cardetail d,t_carsort ss
+      		where ss.sortid=d.sortid and mx.incarid=c.incarid and  mx.pid=p.p_id and mx.mid=m.mid and d.detailid=mx.detailid
+      			and mx.storeid=s.storeid and mx.detailid=#{0} limit #{1},#{2}
+	</select>
+	<!-- 所有记录 -->
+	<select id="counts2" resultType="int">
+		select count(*) from t_incarmx mx,t_incar c ,t_part p,t_master m,t_storehouse s ,t_cardetail d
+      		where mx.incarid=c.incarid and  mx.pid=p.p_id and mx.mid=m.mid and d.detailid=mx.detailid
+      			and mx.storeid=s.storeid and mx.detailid=#{0} 
+	</select>
+	
+	<!-- 条件查询 (状态)-->
+	<select id="alllimit1" resultType="InCarmxEntity">
+		select * from t_incarmx mx,t_incar c ,t_part p,t_master m,t_storehouse s ,t_cardetail d,t_carsort ss
+      		where ss.sortid=d.sortid and mx.incarid=c.incarid and  mx.pid=p.p_id and mx.mid=m.mid and d.detailid=mx.detailid
+      			and mx.storeid=s.storeid and  mx.carkucunflag=#{0} limit #{1},#{2}
+	</select>
+	<!-- 所有记录 -->
+	<select id="counts1" resultType="int">
+		select count(*) from t_incarmx mx,t_incar c ,t_part p,t_master m,t_storehouse s ,t_cardetail d
+      		where mx.incarid=c.incarid and  mx.pid=p.p_id and mx.mid=m.mid and d.detailid=mx.detailid
+      			and mx.storeid=s.storeid and  mx.carkucunflag=#{0}
+	</select>
+	
+	<!-- 所有记录 -->
+	<select id="count" resultType="int">
+		select count(*) from t_incarmx where incarid=#{0}
+	</select>
+	
+	<!-- 重复 -->
+	<select id="rea" resultType="int" parameterType="InCarmxEntity">
+		select count(*) from t_incarmx where carcjh=#{carcjh} or carhgz=#{carhgz} or carfdjh=#{carfdjh}
+	</select>
+	
+</mapper>

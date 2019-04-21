@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.student.Userdao.OAUserdao">
+	<select id="OaLogin" resultType="com.student.pojo.UserOA">
+		select * from UserOA where username=#{username} and password=#{password}
+	</select>
+	<select id="getSelectMess" resultType="com.student.pojo.OAStudent">
+		select student.id,sid,classname,classid,name,sex,age,tel,grade,Xueji,tname,yuwen,math,english,histroy,huaxue,wuli,tiyu from student
+        INNER join teacher ON student.classid=teacher.tid
+        LEFT JOIN class ON student.classid=class.id
+			<where>
+			<if test="text1=='姓名'">
+				and name like concat('%',#{text2},'%')
+			</if>
+			<if test="text1=='电话'">
+				and tel like concat('%',#{text2},'%')
+			</if>
+			<if test="text1=='编号'">
+				and sid like concat('%',#{text2},'%')
+			</if>
+		</where>
+		
+	</select>
+	<delete id="deleteStudent" parameterType="com.student.pojo.OAStudent">
+	delete from Student where id=#{id}
+	</delete>
+	<insert id="saveStudent" parameterType="com.student.pojo.OAStudent">
+    insert into Student(sid,name,sex,age,tel,grade,classid)values(#{sid},#{name},#{sex},#{age},#{tel},#{grade},#{classids})
+	</insert>
+	<select id="getupdate"  resultType="com.student.pojo.OAStudent">
+	 select * from Student where id=#{id}
+	</select>
+	<update id="updateStudent" parameterType="com.student.pojo.OAStudent">
+	update Student set sid=#{sid},name=#{name},sex=#{sex},age=#{age},tel=#{tel},grade=#{grade} where id=#{id}
+    </update>
+ 	<select id="ClassSelect" resultType="com.student.pojo.OAClass">
+		select * from Class 
+			<where>
+			<if test="text3=='班级编号'">
+				and classid like concat('%',#{text4},'%')
+			</if>
+			<if test="text3=='班级名称'">
+				and classname like concat('%',#{text4},'%')
+			</if>
+		</where>
+	</select>
+	<delete id="deleteClass" parameterType="com.student.pojo.OAClass">
+	delete from Class where id=#{id}
+	</delete>
+	<insert id="saveClass" parameterType="com.student.pojo.OAClass">
+    insert into Class(classid,classname,classexplain)values(#{classid},#{classname},#{classexplain})
+	</insert>
+	<select id="getupdateOAClass"  resultType="com.student.pojo.OAClass">
+	 select * from Class where id=#{id}
+	</select>
+	<update id="updateClass" parameterType="com.student.pojo.OAClass">
+	update Class set classid=#{classid},classname=#{classname},classexplain=#{classexplain} where id=#{id}
+    </update>
+    <select id="TeacherSelect" resultType="com.student.pojo.TeacherOA">
+    select * from teacher
+    <where>
+    <if test="text5=='教师姓名'">
+    and tname like concat('%',#{text6},'%')
+    </if>
+    <if test="text5=='省份证'">
+    and tcard like concat('%',#{text6},'%')
+    </if>
+    </where>
+    </select>
+    <delete id="deleteTeacher" parameterType="com.student.pojo.TeacherOA">
+	delete from teacher where tid=#{tid}
+	</delete>
+	<insert id="saveTeacher" parameterType="com.student.pojo.TeacherOA">
+    insert into teacher(tname,tcard,tsex,tadd,tlesson,ttext)values(#{tname},#{tcard},#{tsex},#{tadd},#{tlesson},#{ttext})
+	</insert>
+	<select id="getupdateOATeacher"  resultType="com.student.pojo.TeacherOA">
+	 select * from teacher where tid=#{tid}
+	</select>
+	<update id="updateTeacher" parameterType="com.student.pojo.TeacherOA">
+	update teacher set tname=#{tname},tcard=#{tcard},tsex=#{tsex},tadd=#{tadd},tlesson=#{tlesson},ttext=#{ttext} where tid=#{tid}
+    </update>
+      <update id="UserOAs" parameterType="com.student.pojo.UserOA">
+	update UserOA set password=#{password} where id=#{id}
+    </update>
+    <select id="AllclassStudent" resultType="com.student.pojo.OAStudent">
+    select student.id,sid,class.id,name,sex,age,tel,grade,Xueji,tname,yuwen,math,english,histroy,huaxue,wuli,tiyu from student
+     INNER join teacher ON student.classid=teacher.tid
+    LEFT JOIN  class on student.classid=class.id where class.id=#{id}
+    <where>
+			<if test="textone=='姓名'">
+				and name like concat('%',#{texttwo},'%')
+			</if>
+			<if test="textone=='电话'">
+				and tel like concat('%',#{texttwo},'%')
+			</if>
+			<if test="textone=='编号'">
+				and sid like concat('%',#{texttwo},'%')
+			</if>
+	</where>
+    </select>
+    <select id="UserLogs" resultType="com.student.pojo.UserLog">
+    select * from UserLog
+    </select>
+     <insert id="SavaZhuce" parameterType="com.student.pojo.UserOA">
+     insert into Useroa (username,name,password,phone,email)values(#{username},#{name},#{password},#{phone},#{email})
+    </insert>
+</mapper>

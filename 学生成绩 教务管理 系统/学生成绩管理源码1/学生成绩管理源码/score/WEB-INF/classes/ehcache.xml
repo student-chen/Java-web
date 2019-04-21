@@ -1,0 +1,27 @@
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="../config/ehcache.xsd" updateCheck="false">
+	<!-- EhCache在每次启动的时候都要连接到 ehcache 网站上去检查新版本  使用如上的  updateCheck="false"  来禁止这个检查新版本-->
+	<!-- Subdirectories can be specified below the property e.g. java.io.tmpdir/one -->
+	<diskStore path="java.io.tmpdir/ehcache" />
+
+	<!-- Mandatory Default Cache configuration. These settings will be applied 
+		to caches created programmtically using CacheManager.add(String cacheName) -->
+	<defaultCache maxElementsInMemory="10000" eternal="false"
+		timeToIdleSeconds="120" timeToLiveSeconds="120" overflowToDisk="true"
+		maxElementsOnDisk="10000000" diskPersistent="false"
+		diskExpiryThreadIntervalSeconds="120" memoryStoreEvictionPolicy="LRU" />
+
+	<cache name="org.hibernate.cache.spi.UpdateTimestampsCache"
+		maxElementsInMemory="5000" eternal="true" overflowToDisk="true" />
+	<cache name="org.hibernate.cache.internal.StandardQueryCache"
+		maxElementsInMemory="10000" eternal="false" timeToLiveSeconds="120"
+		overflowToDisk="true" />
+
+	<!-- java文件注解查找cache方法名的策略：如果不指定java文件注解中的region="ehcache.xml中的name的属性值", 
+		则使用name名为com.bjpowernode.bean.user.User的cache(即类的全路径名称), 如果不存在与类名匹配的cache名称, 则用 
+		defaultCache 如果User包含set集合, 则需要另行指定其cache 例如User包含citySet集合, 则也需要 添加配置到ehcache.xml中 -->
+	<cache name="newsTemplete" maxElementsInMemory="2000" eternal="false"
+		timeToIdleSeconds="120" timeToLiveSeconds="120" overflowToDisk="true" />
+
+</ehcache>
+

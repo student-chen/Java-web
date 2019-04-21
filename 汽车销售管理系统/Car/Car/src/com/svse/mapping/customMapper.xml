@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.svse.dao.CustomDAOI">
+	<!-- 全查询 -->
+	<select id="all1" resultType="CustomEntity">
+		select * from t_custom c, t_master m where c.mid=m.mid limit #{0},#{1}
+	</select>
+	<!-- 全查询 -->
+	<select id="getall" resultType="CustomEntity">
+		select customid,customname,customtel from t_custom c, t_master m where c.mid=m.mid  and
+		     customid NOT IN (select c.customid from t_custom c ,t_shouhou s where c.customid=s.customid)
+	</select>
+	
+	<!-- 分页查询 -->
+	<select id="all" resultType="CustomEntity">
+		select customid,customname,customtel from t_custom c, t_master m where c.mid=m.mid and m.mid=#{0} and
+		     customid NOT IN (select c.customid from t_custom c ,t_shouhou s where c.customid=s.customid)
+	</select>
+	
+	<!-- 权限 -->
+	<select id="limit1" resultType="CustomEntity">
+		select * from t_custom c, t_master m where c.mid=m.mid and m.pid=#{2} limit #{0},#{1}
+	</select>
+	
+	<select id="count1" resultType="int">
+		select count(*) from t_custom c, t_master m where c.mid=m.mid and m.pid=#{0}
+	</select>
+	
+	<select id="limit2" resultType="CustomEntity">
+		select * from t_custom c, t_master m where c.mid=m.mid and m.mid=#{2} limit #{0},#{1}
+	</select>
+	<select id="alllimit" resultType="CustomEntity">
+		select * from t_custom c, t_master m where c.mid=m.mid and m.mid=#{0} 
+	</select>
+	<select id="count2" resultType="int">
+		select count(*) from t_custom where mid=#{0}
+	</select>
+	
+	
+	<!-- 所有记录 -->
+	<select id="count" resultType="int">
+		select count(*) from t_custom
+	</select>
+	
+	<!-- 添加 -->
+	<insert id="add" parameterType="CustomEntity">
+		insert into t_custom value(null,#{mid},#{customname},#{customtel})
+	</insert>
+	
+	<!-- 判断重复 -->
+	<select id="repeat" resultType="int" parameterType="CustomEntity">
+		select count(*) from t_custom where customtel=#{customtel}
+	</select>
+</mapper>

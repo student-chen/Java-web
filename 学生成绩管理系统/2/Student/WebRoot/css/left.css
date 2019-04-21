@@ -1,0 +1,49 @@
+@charset "utf-8";
+* {
+	margin:0;
+	padding:0;
+}
+body {
+	background:#444;
+	color:#CCC;
+	margin-top: 12px
+}
+a:link {
+	color:#CCC;
+	text-decoration: none;
+}
+a:visited {
+	color:#CCC;
+	text-decoration: none;
+}
+a:hover {
+	color:#CCC;
+	text-decoration: none;
+}
+a:active {
+	color:#CCC;
+	text-decoration: none;	
+}
+.big {
+	height:45px;
+	line-height:45px;
+	overflow:hidden;
+	padding-left:28px;
+	font-size:14px;
+	border-collapse:collapse;
+	border:#999;
+}
+.small {
+	height:35px;
+	line-height:35px;
+	overflow:hidden;
+	padding-left:48px;
+	font-size:12px;
+	background:#363636;
+}
+.box {
+	display:none;
+}
+.hightLight {
+	background:#4D4D4D;
+}

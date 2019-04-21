@@ -1,0 +1,11 @@
+insert into user (username, password,type) values ('a','b','c')
+
+select * from user
+select * from user where username = 'a' and password = 'b'
+
+alter table student add column cc int(5)	//add column 
+alter table student drop column a		//delete column 
+
+delete from user where id = 1
+
+update student set username = 'a',password = 'b' where id = 1

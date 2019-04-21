@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="HospitalSystem/HospitalSystem/src"/>
+	<classpathentry kind="src" path="HospitalSystem/src"/>
+	<classpathentry kind="lib" path="HospitalSystem/HospitalSystem/WebRoot/WEB-INF/lib/jstl.jar"/>
+	<classpathentry kind="lib" path="HospitalSystem/HospitalSystem/WebRoot/WEB-INF/lib/ms_sql2k_jdbc.jar"/>
+	<classpathentry kind="lib" path="HospitalSystem/HospitalSystem/WebRoot/WEB-INF/lib/msbase.jar"/>
+	<classpathentry kind="lib" path="HospitalSystem/HospitalSystem/WebRoot/WEB-INF/lib/mssqlserver.jar"/>
+	<classpathentry kind="lib" path="HospitalSystem/HospitalSystem/WebRoot/WEB-INF/lib/standard.jar"/>
+	<classpathentry kind="lib" path="HospitalSystem/WebRoot/WEB-INF/lib/jstl.jar"/>
+	<classpathentry kind="lib" path="HospitalSystem/WebRoot/WEB-INF/lib/ms_sql2k_jdbc.jar"/>
+	<classpathentry kind="lib" path="HospitalSystem/WebRoot/WEB-INF/lib/msbase.jar"/>
+	<classpathentry kind="lib" path="HospitalSystem/WebRoot/WEB-INF/lib/mssqlserver.jar"/>
+	<classpathentry kind="lib" path="HospitalSystem/WebRoot/WEB-INF/lib/standard.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="HospitalSystem/WebRoot/WEB-INF/classes"/>
+</classpath>

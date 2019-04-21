@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+
+	<bean id="dataSource"
+		class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName"
+			value="com.mysql.jdbc.Driver">
+		</property>
+		<property name="url" value="jdbc:mysql://localhost:3306/final"></property>
+		<property name="username" value="root"></property>
+		<property name="password" value="root"></property>
+	</bean>
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource">
+			<ref bean="dataSource" />
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.MySQLDialect
+				</prop>
+			</props>
+		</property>
+		<property name="mappingResources">
+			<list>
+				<value>models/Student_course.hbm.xml</value>
+				<value>models/Admin.hbm.xml</value>
+				<value>models/Student.hbm.xml</value>
+				<value>models/Course_teacher.hbm.xml</value>
+				<value>models/Course.hbm.xml</value>
+				<value>models/Teacher.hbm.xml</value></list>
+		</property></bean>
+		
+		
+		<bean id="loginActionBean" class="action.LoginAction" scope="prototype">
+		<property name="loginuserservice" ref="loginUserService"></property>
+		</bean>
+		
+		<bean id="loginUserService" class="service.LoginUserService" >
+		<property name="teacherdao" ref="TeacherDAO"></property>
+		<property name="studentdao" ref="StudentDAO"></property>
+		<property name="admindao" ref="AdminDAO"></property>
+		</bean>
+		
+		
+		<bean id="StudentActionBean" class="action.StudentAction" scope="prototype">
+		<property name="studentservice" ref="studentservice"></property>
+		</bean>
+		
+		<bean id="studentservice" class="service.StudentService">
+		<property name="studentdao" ref="StudentDAO"></property>
+		<property name="courseteacherdao" ref="Course_teacherDAO"></property>
+		<property name="studentcoursedao" ref="Student_courseDAO"></property>
+		</bean>
+		
+		
+		
+		
+		<bean id="TeacherActionBean" class="action.TeacherAction" scope="prototype">
+		<property name="teacherservice" ref="teacherservice"></property>
+		</bean>
+		
+		<bean id="teacherservice" class="service.TeacherService">
+		<property name="teacherdao" ref="TeacherDAO"></property>
+		<property name="c_t_dao" ref="Course_teacherDAO"></property>
+		<property name="coursedao" ref="CourseDAO"></property>
+		<property name="s_c_dao" ref="Student_courseDAO"></property>
+		<property name="studentdao" ref="StudentDAO"></property>
+		</bean>
+		
+		
+		<bean id="AdminActionBean" class="action.AdminAction" scope="prototype">
+		<property name="adminservice" ref="adminservice"></property>
+		</bean>
+		
+		<bean id="adminservice" class="service.AdminService">
+		<property name="admindao" ref="AdminDAO"></property>
+		<property name="studentdao" ref="StudentDAO"></property>
+		<property name="coursedao" ref="CourseDAO"></property>
+		<property name="teacherdao" ref="TeacherDAO"></property>
+		<property name="scdao" ref="Student_courseDAO"></property>
+		<property name="ctdao" ref="Course_teacherDAO"></property>
+		<property name="studao" ref="StudentDAO"></property>
+		</bean>
+		
+	<bean id="Student_courseDAO" class="dao.Student_courseDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="AdminDAO" class="dao.AdminDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="StudentDAO" class="dao.StudentDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="Course_teacherDAO" class="dao.Course_teacherDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="CourseDAO" class="dao.CourseDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="TeacherDAO" class="dao.TeacherDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean></beans>

@@ -1,0 +1,16 @@
+TABLE.calendar{ 
+		font-family : Tahoma; 
+		font-size : 12 ;
+		border-left:1px solid cccccc;
+		border-top:1px solid cccccc;
+		border-right:1px solid #888888;
+		border-bottom:1px solid #888888
+	}
+TD.lastMonth{ color:bbbbbb; } 
+TD.nextMonth{ color:bbbbbb; } 
+TD.normal{color:black;}
+TD.smallFont{font-size:10px;}
+TD.tdCurDate{background:url(..\images\bgCurDate.gif) no-repeat center center;color:white;}
+TD.tdToday{background:url(..\images\bgToday1.gif) no-repeat center center;color:black;}
+TD.tdTodayCurDate{background:url(..\images\bgToday2.gif) no-repeat center center;color:white;}
+TD.tdHoliday{ color:darkred; }

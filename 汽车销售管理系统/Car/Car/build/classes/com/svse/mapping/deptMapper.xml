@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.svse.dao.DeptDAOI">
+	<!-- 添加(zjid值为表中zjid最大值加1) -->
+	<insert id="add" parameterType="DeptEntity">
+		insert into t_part values(null,#{sjid},(select a.id from (select max(zjid) id from t_part ) a)+1 ,#{zjmc},#{zjjs})
+	</insert>
+	<!-- 修改 -->
+	<update id="upp" parameterType="DeptEntity">
+		update t_part set sjid=#{sjid},zjid=#{zjid},zjmc=#{zjmc},zjjs=#{zjjs} where p_id=#{pid} or zjid=#{zjid}
+	</update>
+	<!-- 全查询 -->
+	<select id="all" resultType="DeptEntity">
+		select p_id pid,sjid,zjid,zjmc,zjjs from t_part
+	</select>
+	<!-- 查询单个 -->
+	<select id="one" parameterType="int" resultType="DeptEntity">
+		select * from t_part where p_id=#{pid}
+	</select>
+	<!-- 查询单个 -->
+	<select id="ones" parameterType="int" resultType="DeptEntity">
+		select * from t_part where zjid=#{zjid}
+	</select>
+	<!-- 判断重复 -->
+	<select id="repeat" parameterType="DeptEntity" resultType="int">
+		select count(*) from t_part where zjmc=#{zjmc} and sjid=#{sjid}
+	</select>
+</mapper>

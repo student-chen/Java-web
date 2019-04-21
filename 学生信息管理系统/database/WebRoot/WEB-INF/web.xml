@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" 
+	xmlns="http://java.sun.com/xml/ns/javaee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+	
+	
+
+
+	<servlet>
+		<servlet-name>add</servlet-name>
+		<servlet-class>data.add</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>add</servlet-name>
+		<url-pattern>/user/add</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>update</servlet-name>
+		<servlet-class>data.update</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>update</servlet-name>
+		<url-pattern>/user/update</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet>
+		<servlet-name>update0</servlet-name>
+		<servlet-class>data.update0</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>update0</servlet-name>
+		<url-pattern>/user/update0</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>delete</servlet-name>
+		<servlet-class>data.delete</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>delete</servlet-name>
+		<url-pattern>/user/delete</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>cdelete</servlet-name>
+		<servlet-class>data.cdelete</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>cdelete</servlet-name>
+		<url-pattern>/user/cdelete</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>login</servlet-name>
+		<servlet-class>data.login</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>login</servlet-name>
+		<url-pattern>/user/login</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>tclist</servlet-name>
+		<servlet-class>data.tclist</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>tclist</servlet-name>
+		<url-pattern>/user/tclist</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>tclist1</servlet-name>
+		<servlet-class>data.tclist1</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>tclist1</servlet-name>
+		<url-pattern>/user/tclist1</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>stlist</servlet-name>
+		<servlet-class>data.stlist</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>stlist</servlet-name>
+		<url-pattern>/user/stlist</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>ncourse</servlet-name>
+		<servlet-class>data.ncourse</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ncourse</servlet-name>
+		<url-pattern>/user/ncourse</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>nscore</servlet-name>
+		<servlet-class>data.nscore</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>nscore</servlet-name>
+		<url-pattern>/user/nscore</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>adlist</servlet-name>
+		<servlet-class>data.adlist</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>adlist</servlet-name>
+		<url-pattern>/user/adlist</url-pattern>
+	</servlet-mapping>
+	
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>

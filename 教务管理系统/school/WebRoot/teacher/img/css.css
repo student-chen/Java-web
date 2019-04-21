@@ -1,0 +1,147 @@
+INPUT {
+	FONT-SIZE: 9pt
+}
+.INPUT_button40 {
+	BORDER-RIGHT: #0065ce 1px ridge; PADDING-RIGHT: 1px; BORDER-TOP: #0065ce 1px ridge; PADDING-LEFT: 1px; FONT-SIZE: 9pt; PADDING-BOTTOM: 1px; BORDER-LEFT: #0065ce 1px ridge; WIDTH: 40px; CURSOR: hand; COLOR: #000000; PADDING-TOP: 1px; BORDER-BOTTOM: #0065ce 1px ridge; FONT-FAMILY: "宋体"; HEIGHT: 20px; BACKGROUND-COLOR: #f7f7ff
+}
+.INPUT_button {
+	BORDER-RIGHT: #0065ce 1px ridge; PADDING-RIGHT: 1px; BORDER-TOP: #0065ce 1px ridge; PADDING-LEFT: 1px; FONT-SIZE: 9pt; PADDING-BOTTOM: 1px; BORDER-LEFT: #0065ce 1px ridge; CURSOR: hand; COLOR: #000000; PADDING-TOP: 1px; BORDER-BOTTOM: #0065ce 1px ridge; FONT-FAMILY: "宋体"; HEIGHT: 20px; BACKGROUND-COLOR: #f7f7ff
+}
+.INPUT_text {
+	BORDER-RIGHT: #336799 1px solid; BORDER-TOP: #336799 1px solid; FONT-SIZE: 9pt; BORDER-LEFT: #336799 1px solid; BORDER-BOTTOM: #336799 1px solid; FONT-FAMILY: "宋体"; BACKGROUND-COLOR: #f1f1f1
+}
+.INPUT_text40 {
+	BORDER-RIGHT: #336799 1px solid; BORDER-TOP: #336799 1px solid; FONT-SIZE: 9pt; BORDER-LEFT: #336799 1px solid; WIDTH: 40px; BORDER-BOTTOM: #336799 1px solid; FONT-FAMILY: "宋体"; BACKGROUND-COLOR: #f1f1f1
+}
+A:link {
+	COLOR: #000000; FONT-FAMILY: 宋体; TEXT-DECORATION: underline
+}
+A:visited {
+	COLOR: #000000; FONT-FAMILY: 宋体; TEXT-DECORATION: underline
+}
+A:active {
+	COLOR: red; FONT-FAMILY: 宋体; TEXT-DECORATION: underline
+}
+A:hover {
+	COLOR: red; FONT-FAMILY: 宋体; TEXT-DECORATION: underline
+}
+.tttt {
+	BACKGROUND-COLOR: #99cc99; BORDER-BOTTOM: #343434 1px solid; BORDER-LEFT: #343434 1px solid; BORDER-RIGHT: #343434 1px solid; BORDER-TOP: #343434 1px solid; COLOR: black; FONT-FAMILY: "宋体"; FONT-SIZE: 9pt; WIDTH: 55px
+}
+.select {
+	BACKGROUND-COLOR: #ccffcc; BORDER-BOTTOM: #343434 1px solid; BORDER-LEFT: #343434 1px solid; BORDER-RIGHT: #343434 1px solid; BORDER-TOP: #343434 1px solid; COLOR: #333333; FONT-FAMILY: "宋体"; FONT-SIZE: 10pt
+}
+.lb1 {
+	BORDER-BOTTOM: #c2e78f 4px solid; BORDER-LEFT: #c2e78f 12px solid
+}
+.left12 {
+	BORDER-LEFT: #c2e78f 12px solid
+}
+.BODY {
+	COLOR: #000000; FONT-FAMILY: "宋体"; FONT-SIZE: 9pt; scrollbar-face-color: #FFFFFF; scrollbar-shadow-color: #000000; scrollbar-highlight-color: #000000; scrollbar-3dlight-color: #FFFFFF; scrollbar-darkshadow-color: #FFFFFF; scrollbar-track-color: #FFFFFF; scrollbar-arrow-color: #666666
+}
+TABLE
+{
+    BACKGROUND-COLOR: white;
+    MARGIN-LEFT: 0px;
+    PADDING-LEFT: 5px
+}
+.TH
+{
+    BACKGROUND-COLOR: silver;
+    FONT-WEIGHT: bolder;
+    MARGIN-LEFT: 0px
+}
+.TR {
+	FONT-FAMILY: 宋体; FONT-SIZE: 9pt
+.TD {
+	FONT-FAMILY: 宋体; FONT-SIZE: 9pt; HEIGHT: 22px; LINE-HEIGHT: 20px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px
+}
+.FONT {
+	FONT-FAMILY: 宋体; FONT-SIZE: 9pt
+.INPUT {
+	FONT-FAMILY: 宋体; FONT-SIZE: 9pt; HEIGHT: 22px; PADDING-LEFT: 2px; PADDING-RIGHT: 2px; PADDING-TOP: 1px
+}
+.title {
+	FONT-FAMILY: 宋体; FONT-SIZE: 12pt
+}
+.tbody {
+	FONT-FAMILY: 宋体; FONT-SIZE: 9pt; HEIGHT: 0px; PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+.window {
+	BORDER-BOTTOM: black 2px solid; BORDER-LEFT: #eeeeee 2px solid; BORDER-RIGHT: black 2px solid; BORDER-TOP: #eeeeee 2px solid
+}
+.menu {
+	BORDER-BOTTOM: black 1px solid; BORDER-LEFT: #eeeeee 1px solid; BORDER-RIGHT: black 1px solid; BORDER-TOP: #eeeeee 1px solid
+}
+.buttonmouseon {
+	BORDER-BOTTOM: black 1px solid; BORDER-LEFT: #ffffff 1px solid; BORDER-RIGHT: black 1px solid; BORDER-TOP: #ffffff 1px solid; HEIGHT: 21px; PADDING-TOP: 1px; WIDTH: 30px
+}
+.buttonmousedown {
+	BORDER-BOTTOM: #ffffff 1px solid; BORDER-LEFT: black 1px solid; BORDER-RIGHT: #ffffff 1px solid; BORDER-TOP: black 1px solid; HEIGHT: 21px; PADDING-TOP: 1px; WIDTH: 30px
+}
+.buttonmouseout {
+	BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; BORDER-RIGHT: 0px; BORDER-TOP: 0px; HEIGHT: 21px; PADDING-TOP: 1px; WIDTH: 32px
+}
+.button {
+	CURSOR: default; FONT-FAMILY: 宋体; FONT-SIZE: 9pt; HEIGHT: 22px; PADDING-LEFT: 2px; PADDING-RIGHT: 2px; PADDING-TOP: 1px
+}
+.td_button {
+	BORDER-BOTTOM: black 1px solid; BORDER-LEFT: #ffffff 1px solid; BORDER-RIGHT: black 1px solid; BORDER-TOP: #ffffff 1px solid; HEIGHT: 15px; LINE-HEIGHT: 15px; PADDING-BOTTOM: 1px; PADDING-LEFT: 4px; PADDING-RIGHT: 4px; PADDING-TOP: 1px
+}
+.td_button_down {
+	BORDER-BOTTOM: #ffffff 1px solid; BORDER-LEFT: black 1px solid; BORDER-RIGHT: #ffffff 1px solid; BORDER-TOP: black 1px solid; HEIGHT: 15px; LINE-HEIGHT: 15px; PADDING-BOTTOM: 0px; PADDING-LEFT: 5px; PADDING-RIGHT: 3px; PADDING-TOP: 2px
+}
+.article {
+	font-size: 12px;
+	line-height: 20px;
+	color: #666666;
+	text-align: justify;
+	text-indent: 10pt;
+}
+.unnamed1 {  font-family: "黑体"; font-weight: bold; font-variant: normal; color: #0066CC}
+.unnamed2 {  font-family: "楷体_GB2312"; font-size: 9px; font-style: oblique; font-weight: bolder; color: #000000}
+.unnamed3 {  font-size: medium}
+.unnamed4 {  font-family: "华文行楷"; font-size: medium}
+.unnamed5 {  font-family: "华文彩云"; font-size: large}
+.p {  line-height: 1cm}
+
+.H1
+{
+    BACKGROUND-COLOR: blue;
+    BACKGROUND-IMAGE: url(../images/nav1.jpg);
+    BACKGROUND-REPEAT: repeat;
+    COLOR: white;
+    FONT: bold 28pt Verdana, Arial;
+    MARGIN-BOTTOM: 0px;
+    MARGIN-LEFT: 0px;
+    PADDING-LEFT: 5px;
+    TEXT-ALIGN: left;
+    TEXT-INDENT: 7px
+}
+.H3
+{
+    BACKGROUND-COLOR: yellow;
+    BACKGROUND-IMAGE: none;
+    BACKGROUND-REPEAT: repeat;
+    BORDER-BOTTOM: 0px;
+    COLOR: teal;
+    FONT: bold 12pt Verdana, Arial;
+    MARGIN-TOP: 0px;
+    MARGIN-LEFT: 0px;
+    PADDING-LEFT: 5px;
+    TEXT-ALIGN: left;
+    TEXT-INDENT: 7px
+}
+.STRONG
+{
+    FONT-WEIGHT: bold;
+    MARGIN-LEFT: 0px;
+    MARGIN-RIGHT: 0px
+}
+.VAR
+{
+    FONT-STYLE: italic;
+    MARGIN-LEFT: 0px;
+    PADDING-LEFT: 5px
+}

@@ -1,0 +1,35 @@
+@charset "utf-8";
+* {
+	margin:0;
+	padding:0;
+}
+body {
+	background:background:url(../images/body-bg.png) repeat;
+}
+.window {
+	width:450px;
+	margin-top:50px;
+}
+.tit {
+	width:440px;
+	height:50px;
+	line-height:50px;
+	overflow:hidden;
+	padding-left:12px;
+	margin-bottom:12px;
+	background:#363636;
+	color:#CCC;
+	font-family:"黑体";
+	font-size:18px;
+}
+.main {
+	width:450px;
+	border:1px #666 solid;
+}
+form div div {
+	height:35px;
+	line-height:35px;
+	overflow:hidden;
+	margin-top:12px;
+	padding-left:120px;
+}

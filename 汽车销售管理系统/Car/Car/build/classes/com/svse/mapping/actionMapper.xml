@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.svse.dao.ActionDAOI">
+	
+	<select id="all" resultMap="ActionMap">
+		select * from t_action a, t_module m where a.moduleid=m.moduleid
+	</select>
+	<select id="allm" parameterType="int" resultMap="ActionMap">
+		select * from t_action a, t_module m where a.moduleid=m.moduleid and a.moduleid=#{moduleid}
+	</select>
+	<resultMap type="ActionsEntity" id="ActionMap">
+		<id column="actionid" property="actionid"/>
+		<result column="actionname" property="actionname"/>
+		<result column="action" property="action"/>
+		<result column="viewmode" property="viewmode"/>
+		
+		<association property="module" javaType="ModuleEntity">
+			<id column="moduleid" property="moduleid"/>
+			<result column="modulename" property="modulename"/>
+		</association>
+	</resultMap>
+	<select id="allaction" resultMap="ActionMap">
+		select * from t_action a, t_module m where a.moduleid=m.moduleid limit #{0},#{1}
+	</select>
+
+	<select id="count" resultType="int">
+		select count(*) from t_action
+	</select>
+</mapper>

@@ -1,0 +1,22 @@
+@CHARSET "UTF-8";
+<style type="text/css"> 
+<!--
+a {text-decoration:none;}
+a:link{text-decoration: none;color:#CCFFFF}
+a:visited{text-decoration:none;color:#CCFFFF}
+a:active {TEXT-DECORATION: none}
+a:hover {text-decoration : none; position : relative; top : 1px; left : 1px}
+	
+.title_1 { font-family: "Verdana"; font-size: 12px; color: #E1E4EC; width: 100%; filter: DropShadow(Color=#213C63, OffX=1, OffY=1)}
+ 
+.text { font-family: "Verdana"; font-size: 12px; line-height: 16px; color: #666699; text-decoration: none}
+ 
+.unnamed1 { filter: DropShadow(Color=#FFFFFF, OffX=1, OffY=1)}
+
+body {font-family:宋体;margin:0}
+-->
+
+
+.DoubleColorTable tr{background-color:expression("#CCCCFF,#FFFFFF,#EEEEEE,#DDDDDD,#CCCCCC".split(",")[rowIndex%6])}
+
+</style>

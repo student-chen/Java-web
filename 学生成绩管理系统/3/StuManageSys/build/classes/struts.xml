@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+
+	<package name="strutsBean" extends="struts-default" namespace="/">
+
+		<action name="login" class="loginActionBean">
+			<result name="studentsuccess">/studentDefault.jsp</result>
+			<result name="teachersuccess">/teacherDefault.jsp</result>
+			<result name="adminsuccess">/adminDefault.jsp</result>
+			<result name="fail">/fail.jsp</result>
+		</action>
+		
+		<action name="update" class="StudentActionBean">
+			<result name="success">/success.jsp</result>
+			<result name="teachersuccess">/teacherDefault.jsp</result>
+			<result name="fail">/fail.jsp</result>
+		</action>
+		
+		<action name="alternativecourse" class="StudentActionBean" method="showcourse">
+			<result name="success">/student/courselist.jsp</result>
+			<result name="fail">/fail.jsp</result>
+		</action>
+		
+		<action name="select" class="StudentActionBean" method="selectcourse">
+			<result name="success">/student/courselist.jsp</result>
+			<result name="fail">/fail.jsp</result>
+		</action>
+		
+		<action name="courseresult" class="StudentActionBean" method="selectcourseresult">
+			<result name="success">/student/selectcourselist.jsp</result>
+			<result name="fail">/fail.jsp</result>
+		</action>
+		
+		<action name="deletecourse" class="StudentActionBean" method="deletecourse">
+			<result name="success">/student/selectcourselist.jsp</result>
+			<result name="fail">/fail.jsp</result>
+		</action>
+		
+		<action name="querygrade" class="StudentActionBean" method="selectcourseresult">
+			<result name="success">/student/querygrade.jsp</result>
+			<result name="fail">/fail.jsp</result>
+		</action>
+		
+		
+		
+		<action name="updateTeacher" class="TeacherActionBean">
+			<result name="success">/success.jsp</result>
+			<result name="fail">/fail.jsp</result>
+		</action>
+		
+		<action name="teacherSelectCourse" class="TeacherActionBean" method="selectCourse">
+			<result name="success">/teacher/canSelect.jsp</result>
+			<result name="fail">/fail.jsp</result>
+		</action>
+		
+		<action name="choice" class="TeacherActionBean" method="sure">
+			<result name="success">/success.jsp</result>
+			<result name="fail">/fail.jsp</result>
+		</action>
+		
+		<action name="result" class="TeacherActionBean" method="selectResult">
+			<result name="success">/teacher/hasSelect.jsp</result>
+			<result name="fail">/fail.jsp</result>
+		</action>
+		
+		<action name="cancelChoice" class="TeacherActionBean" method="cancel">
+			<result name="success">/success.jsp</result>
+			<result name="fail">/teacher/deleteError.jsp</result>
+		</action>
+		
+		<action name="showAll" class="TeacherActionBean" method="showAll">
+			<result name="success">/teacher/showAll.jsp</result>
+			<result name="fail">/fail.jsp</result>
+		</action>
+		
+		<action name="showAStudent" class="TeacherActionBean" method="showAStudent">
+			<result name="success">/teacher/showOneStu.jsp</result>
+			<result name="fail">/fail.jsp</result>
+		</action>
+		
+		<action name="showWindow" class="TeacherActionBean" method="showWindow">
+			<result name="success">/teacher/grade.jsp</result>
+			<result name="fail">/fail.jsp</result>
+		</action>
+		
+		<action name="updateOneStudent" class="TeacherActionBean" method="changeGrade">
+			<result name="success">/success.jsp</result>
+			<result name="fail">/fail.jsp</result>
+		</action>
+		
+		
+		
+		
+		
+		<action name="adminupdateInfo" class="AdminActionBean">
+			<result name="success">/success.jsp</result>
+			<result name="fail">/fail.jsp</result>
+		</action>
+		
+		<action name="showallstuInfo" class="AdminActionBean" method="showallstuInfo">
+			<result name="success">/admin/studentinfo.jsp</result>
+			<result name="fail">/fail.jsp</result>
+		</action>
+		
+		<action name="admindeletestu" class="AdminActionBean" method="admindeletestu">
+			<result name="success">/admin/studentinfo.jsp</result>
+			<result name="fail">/fail.jsp</result>
+		</action>
+		
+		<action name="admingetSelectedStu" class="AdminActionBean" method="admingetSelectedStu">
+			<result name="success">/admin/editstudentinfo.jsp</result>
+			<result name="fail">/fail.jsp</result>
+		</action>
+		
+		<action name="admineditstu" class="AdminActionBean" method="adminEditStu">
+			<result name="success">/admin/studentinfo.jsp</result>
+			<result name="fail">/fail.jsp</result>
+		</action>
+		
+		<action name="adminaddstu" class="AdminActionBean" method="adminAddStu">
+			<result name="success">/success.jsp</result>
+			<result name="fail">/fail.jsp</result>
+		</action>
+		
+		
+		<action name="showallcourse" class="AdminActionBean" method="showallcourse">
+			<result name="success">/admin/courseinfo.jsp</result>
+			<result name="fail">/fail.jsp</result>
+		</action>
+		
+		
+		<action name="admindeletecourse" class="AdminActionBean" method="adminDeleteCourse">
+			<result name="success">/admin/courseinfo.jsp</result>
+			<result name="fail">/fail.jsp</result>
+		</action>
+				
+		<action name="admingetSelectedCourseInfo" class="AdminActionBean" method="admingetSelectedCourseInfo">
+			<result name="success">/admin/editcourseInfo.jsp</result>
+			<result name="fail">/fail.jsp</result>
+		</action>
+		
+		<action name="admineditcourse" class="AdminActionBean" method="adminEditCourse">
+			<result name="success">/admin/courseinfo.jsp</result>
+			<result name="fail">/fail.jsp</result>
+		</action>
+			
+		<action name="adminaddcourse" class="AdminActionBean" method="adminAddCourse">
+			<result name="success">/admin/courseinfo.jsp</result>
+			<result name="fail">/fail.jsp</result>
+		</action>
+		
+		
+		<action name="AdminManageTeacher" class="AdminActionBean"  method="manageTea">
+			<result name="success">/admin/manageTeacher.jsp</result>
+			<result name="fail">/fail.jsp</result>
+		</action>
+		
+		<action name="AdmindeleteTeacher" class="AdminActionBean"  method="deleteTea">
+			<result name="success">/success.jsp</result>
+			<result name="fail">/fail.jsp</result>
+		</action>
+		
+		<action name="AdminUpdateTeacher" class="AdminActionBean"  method="adminEditTeacher">
+			<result name="success">/admin/editTeacher.jsp</result>
+			<result name="fail">/fail.jsp</result>
+		</action>
+		
+		<action name="AdminChangeTeacher" class="AdminActionBean"  method="UpdateTea">
+			<result name="success">/success.jsp</result>
+			<result name="fail">/fail.jsp</result>
+		</action>
+		
+		
+		
+		
+		
+	<action name="AdminAddTeacher" class="AdminActionBean"  method="adminAddTeacher">
+			<result name="success">/success.jsp</result>
+			<result name="fail">/fail.jsp</result>
+		</action>
+		
+	
+	
+	
+	
+		<action name="adminManageCTid" class="AdminActionBean"  method="adminManageCTid">
+			<result name="success">/admin/manageCT.jsp</result>
+			<result name="fail">/fail.jsp</result>
+		</action>
+		
+		<action name="adminDeleteCT" class="AdminActionBean"  method="adminDeleteCTid">
+			<result name="success">/success.jsp</result>
+			<result name="fail">/fail.jsp</result>
+		</action>
+		
+		
+		
+		
+		<action name="adminManageSCid" class="AdminActionBean"  method="adminManageSCid">
+			<result name="success">/admin/manageSC.jsp</result>
+			<result name="fail">/fail.jsp</result>
+		</action>
+		
+		<action name="adminDeleteSC" class="AdminActionBean"  method="adminDeleteSC">
+			<result name="success">/success.jsp</result>
+			<result name="fail">/fail.jsp</result>
+		</action>
+		
+		<action name="adminEditGrade" class="AdminActionBean"  method="adminEditGrade">
+			<result name="success">/admin/editGrade.jsp</result>
+			<result name="fail">/fail.jsp</result>
+		</action>
+		<action name="adminChangeGrade" class="AdminActionBean"  method="adminChangeGrade">
+			<result name="success">/success.jsp</result>
+			<result name="fail">/fail.jsp</result>
+		</action>
+	</package>
+
+   <package name="strutsBean2" extends="struts-default" namespace="/student">
+   <action name="select" class="StudentActionBean" method="selectcourse">
+			<result name="success">/student/courselist.jsp</result>
+			<result name="fail">/fail.jsp</result>
+		</action>
+   </package>
+</struts>
+

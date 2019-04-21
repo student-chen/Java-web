@@ -1,0 +1,25 @@
+@charset "utf-8";
+
+body{ margin:0px; padding:0px;/*background:url(images/bg.jpg) no-repeat;*/}
+a{ cursor:pointer;}
+a:active, a:hover {
+text-decoration:none;
+}
+ul{ margin:0px; padding:0px;}
+li{ list-style:none;}
+.clear{ clear:both;}
+.hidden{ display:none;}
+.fl{ float:left;}
+.fr{ float:right;}
+
+
+.denglu{background:url(images/bg02.jpg) center top; margin:0 auto; width:100%;min-height:100%; height:auto !important; height:100%;  }
+.denglu .biaoti{ margin:center; width:100%; margin-top:80px;}
+.denglu .log{ margin:0 auto; width:900px; margin-top:20px; background:#666;}
+.deng{ width:50%; margin:0 auto;float:left; margin-left:40px; margin-top:110px;}
+.miaoshu{ width:40%;float:left; font-size:20px; line-height:25px; color:#999; margin-top:120px;margin-left:50px;}
+.miaoshu .ms{  font-size:30px; color:#0272bc; font-weight:bold; line-height:35px; margin-bottom:10px;}
+.btn-login {background: none repeat scroll 0 0 rgb(2, 114, 188);border: medium none; cursor: pointer; height: 40px;margin:25px 0 0 15px;;width: 120px;color: #fff;font-family: "΢���ź�";font-size: 18px;border-radius:5px;}
+
+
+

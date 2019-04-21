@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.svse.dao.ZcDAOI">
+	<!-- 添加 -->
+	<insert id="addZc" parameterType="ZcEntity">
+		insert into t_zc values(null,#{zname},#{zremark})
+	</insert>
+	<!-- 修改 -->
+	<update id="uppZc" parameterType="ZcEntity">
+		update t_zc set z_name=#{zname},z_remark=#{zremark} where z_id=#{zid} 
+	</update>
+	<!-- 全查询 -->
+	<select id="allZc" resultType="ZcEntity" parameterType="ZcEntity">
+      select z_id zid,z_name zname,z_remark zremark from t_zc limit #{0},#{1}
+	</select>
+	<select id="all" resultType="ZcEntity" parameterType="ZcEntity">
+      select z_id zid,z_name zname,z_remark zremark from t_zc 
+	</select>
+	<!-- 查询单个 -->
+	<select id="oneZc" parameterType="int" resultType="ZcEntity">
+		select z_id zid,z_name zname,z_remark zremark from t_zc where z_id=#{zid}
+	</select>
+	<!-- 判断重复 -->
+	<select id="repeatZc" parameterType="ZcEntity" resultType="int">
+		select count(*) from t_zc where z_name=#{zname}
+	</select>
+	<!-- 所有记录 -->
+	<select id="Count" resultType="int">
+		select count(*) from t_zc
+	</select>
+</mapper>

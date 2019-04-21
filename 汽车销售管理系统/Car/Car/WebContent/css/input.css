@@ -1,0 +1,62 @@
+
+input {
+	height: 20px;
+	width: 220px;
+	padding: 5px 8px;
+}
+
+textarea {
+	padding: 8px;
+	width: 300px;
+}
+
+button {
+	margin-left: 156px;
+}
+
+
+/* form element visual styles */
+
+input,
+textarea {
+	border: 1px solid #aaa;
+	box-shadow: 0px 0px 3px #ccc, 0 10px 15px #eee inset;
+	border-radius: 2px;
+	padding-right: 30px;
+	-moz-transition: padding .25s;
+	-webkit-transition: padding .25s;
+	-o-transition: padding .25s;
+	transition: padding .25s;
+}
+
+input:focus,
+textarea:focus {
+	background: #fff;
+	border: 1px solid #555;
+	box-shadow: 0 0 3px #aaa;
+	padding-right: 70px;
+}
+
+
+/* === HTML5 validation styles === */
+
+input:required,
+textarea:required {
+	background: #fff url(../images/red_asterisk.png) no-repeat 98% center;
+}
+
+input:required:valid,
+textarea:required:valid {
+	background: #fff url(../images/valid.png) no-repeat 98% center;
+	box-shadow: 0 0 5px #5cd053;
+	border-color: #28921f;
+}
+
+input:focus:invalid,
+textarea:focus:invalid {
+	background: #fff url(../images/invalid.png) no-repeat 98% center;
+	box-shadow: 0 0 5px #d45252;
+	border-color: #b03535
+}
+
+

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.svse.dao.PurcarmxDAOI">
+
+	<!-- 添加 -->
+	<insert id="add" parameterType="PurcarmxEntity">
+		insert into t_purcarmx
+		values(null,#{purchaseid},#{detailid},#{caigouprice},#{caigoucount})
+	</insert>
+
+	<!-- 删除 -->
+	<insert id="del" parameterType="int">
+		delete from t_purcarmx where purchaseid=#{purchaseid}
+	</insert>
+
+	<!-- 全查询 -->
+	<select id="all" resultType="PurcarmxEntity" parameterType="int">
+		select pc.detailid,c.sortname,d.detailname,pc.caigouprice,pc.caigoucount from
+		t_purcarmx pc,t_cardetail d,t_carsort c
+		where pc.detailid=d.detailid and c.sortid=d.sortid and
+		pc.purchaseid=#{purchaseid}
+	</select>
+
+	<!-- 查询 -->
+	<select id="one" parameterType="int" resultType="PurcarmxEntity">
+		select * from t_purcarmx p,t_purchase c where p.purchaseid=c.purchaseid and p.purchaseid=#{purchaseid}
+	</select>
+
+	<!-- 所有记录 -->
+	<select id="count" resultType="int">
+		select count(*) from t_purcarmx
+	</select>
+
+</mapper>
+	

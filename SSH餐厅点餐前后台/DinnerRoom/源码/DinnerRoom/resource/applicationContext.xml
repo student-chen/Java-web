@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+	http://www.springframework.org/schema/tx
+	http://www.springframework.org/schema/tx/spring-tx-3.1.xsd
+	http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop-3.1.xsd
+	http://www.springframework.org/schema/context 
+	http://www.springframework.org/schema/context/spring-context-3.1.xsd"
+	default-autowire="byName">
+	<!-- 定义dbcp数据源 -->
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver">
+		</property>
+		<!-- 提供连接数据库的URL地址 -->
+		<property name="url" value="jdbc:mysql://localhost:3306/dinner">
+		</property>
+		<!-- 提供连接数据库的用户名和密码 -->
+		<property name="username" value="root"></property>
+		<property name="password" value="admin"></property>
+	</bean>
+	<!-- 定义SessionFactory Bean -->
+	<!-- xml方式： org.springframework.orm.hibernate3.LocalSessionFactoryBean -->
+	<!-- 注解方式 :org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean -->
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<!-- 为LocalSessionFactoryBean注入定义好的数据源 -->
+		<property name="dataSource">
+			<ref bean="dataSource" />
+		</property>
+		<!-- 添加Hibernate配置参数 -->
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.MySQLDialect
+				</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.format_sql">true</prop>
+			</props>
+		</property>
+		<!-- hbm.xml 方式 -->
+		<property name="mappingDirectoryLocations">
+			<list>
+				<value>classpath:cn/dinner/entity/</value>
+			</list>
+		</property>
+		<!-- 注解 -->
+		<!-- <property name="packagesToScan" value="cn.jbit.entity"/> -->
+	</bean>
+	<!-- 定义事务管理器 -->
+	<bean id="txManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<!-- 开启注解事务处理 -->
+	<tx:annotation-driven transaction-manager="txManager"/>	
+	
+	<!-- 自动扫描包 -->
+	<context:component-scan base-package="cn.dinner.dao,cn.dinner.service"></context:component-scan>
+	<!-- Dao包资源 -->
+	<import resource="classpath:app_dao.xml"/>
+	<!-- Service包资源 -->
+	<import resource="classpath:app_service.xml"/>
+</beans>

@@ -1,0 +1,46 @@
+@charset "utf-8";
+* {
+	margin: 0;
+	padding: 0;
+}
+body {
+	background: url(../images/body-bg.png) repeat;
+}
+.window {
+	width: 650px;
+	margin-top: 20px;
+}
+.tit {
+	color: #999;
+	font-family: "黑体";
+	font-size: 36px;
+	width: 240px;
+	height: 40px;
+	line-height: 40px;
+	overflow: hidden;
+	padding-left: 32px;
+	margin-bottom: 32px;
+}
+form div div {
+	font-size: 18px;
+	margin-top: 12px;
+	padding-left: 20px;
+}
+form div div input {
+	width: 250px;
+	height: 28px;
+	line-height: 28px;
+	overflow: hidden;
+	padding-left: 10px;
+}
+.s1 {
+	float: left;
+	width: 200px;
+	margin-left: -50px;
+	font-family: "宋体";
+	font-size: 14px;
+}
+.s2 {
+	font-family: "宋体";
+	font-size: 14px;
+}

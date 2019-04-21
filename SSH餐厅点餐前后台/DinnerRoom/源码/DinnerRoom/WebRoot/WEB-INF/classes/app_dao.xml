@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	default-autowire="byName"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+	
+	<!-- Dao包实现类 -->
+	<bean id="usersDao" class="cn.dinner.dao.Impl.UsersDaoImpl"/>
+	<bean id="menuDao" class="cn.dinner.dao.Impl.MenuDaoImpl"/>
+	<bean id="menuTypeDao" class="cn.dinner.dao.Impl.MenuTypeDaoImpl"/>
+	<bean id="memberDao" class="cn.dinner.dao.Impl.MemberDaoImpl"/>
+	<bean id="memberTypeDao" class="cn.dinner.dao.Impl.MemberTypeDaoImpl"/>
+	<bean id="diningTableDao" class="cn.dinner.dao.Impl.DiningTableDaoImpl"/>
+	<bean id="dinnerOrderDao" class="cn.dinner.dao.Impl.DinnerOrderDaoImpl"/>
+	<bean id="dinnerNoticeDao" class="cn.dinner.dao.Impl.DinnerNoticeDaoImpl"/>
+</beans>

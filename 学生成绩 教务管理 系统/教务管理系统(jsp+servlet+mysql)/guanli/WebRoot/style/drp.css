@@ -1,0 +1,192 @@
+/*工作区的背景色*/
+.body1 {
+	background-color: #fffff5;
+}
+
+/*查询结果信息背景色*/
+.body2 {
+	background-color: #fffff5;
+}
+
+/*弹出窗口的背景色*/
+.body3 {
+	background-color: #CCCCCC;
+}
+
+/*导航标题*/
+.p1 {
+	font-size: 11pt;
+	font-family: 宋体;
+	color: #000000;
+}
+
+/*主标题*/
+.p2{
+	font-family : 宋体;
+	font-size : 10pt;
+	color : #ffffff;
+	text-align: left;
+}
+
+/*分页区域*/
+p2{
+	font-family : 宋体;
+	font-size : 10pt;
+	color : #ffffff;
+	text-align: left;
+}
+
+/*副标题*/
+.p3{
+	font-family : 宋体;
+	font-size : 9pt;
+	//color: #000000;
+	//text-align: right;
+}
+
+/*按钮*/
+.button1 {
+	cursor: hand;
+	font-size: 9pt;
+	font-family: 宋体;
+	border: thin outset #B7BACC;
+	height: 20px;
+}
+
+.text1{
+	font-size: 9pt;
+	font-family: 宋体;
+	/*background-color: #FFF0F8;*/
+	/*color: #00007D;*/
+}
+
+.checkbox1{
+	none;
+}
+
+.select1{
+	font-size: 9pt;
+	font-family: 宋体;
+	/*background-color: #FFF0F8;*/
+	/*color: #011098;*/
+	border: thin groove #B7BACC;
+	height : 20px;
+}
+
+.radio1{
+	none;
+}
+
+.textarea1{
+	font-size: 9pt;
+	font-family: 宋体;
+	/*background-color: #FFF0F8;*/
+	color: #011098;
+	border: thin groove #B7BACC;	
+}
+
+/*标题背景*/
+.rd1 {
+	height: 23;
+	background-image:url(..\images\dialogtop.gif);
+}
+
+/*顶部的工具栏*/
+.rd2 {
+	cursor: hand;
+	font-size: 9pt;
+	font-family: 宋体;
+	background-color: #666666;
+}
+
+/*底部分页*/
+.rd3 {
+	font-size: 9pt;
+	font-family: 宋体;
+	background-color: #666666;
+}
+
+
+/*表头居中*/ 
+.rd6 {
+	font-size: 9pt;
+	font-family: 宋体;
+	background-color: #ccccc5;
+	text-align: center;
+	height: 20;
+	BORDER-bottom: black 1px solid;
+	BORDER-left: black 1px solid; 
+	BORDER-right: black 1px solid; 
+
+}
+
+/*表体内容左对齐*/ 
+.rd7 {
+	font-size: 9pt;
+	font-family: 宋体;
+	background-color: #fffff5;
+	text-align: left;
+	height: 22;
+	BORDER-top: black 1px solid; 
+	BORDER-bottom: black 1px solid;
+	BORDER-left: black 1px solid; 
+	BORDER-right: black 1px solid; 
+	
+}
+
+
+/*表体内容居中*/ 
+.rd8 {
+	font-size: 9pt;
+	font-family: 宋体;
+	background-color: #fffff5;
+	text-align: center;
+	height: 22;
+	BORDER-top: black 1px solid; 
+	BORDER-bottom: black 1px solid;
+	BORDER-left: black 1px solid; 
+	BORDER-right: black 1px solid; 
+	
+}
+
+/*表体内容右对齐*/ 
+.rd9 {
+	font-size: 9pt;
+	font-family: 宋体;
+	background-color: #fffff5;
+	text-align: right;
+	height: 22;
+	BORDER-top: black 1px solid; 
+	BORDER-bottom: black 1px solid;
+	BORDER-left: black 1px solid; 
+	BORDER-right: black 1px solid; 
+	
+}
+
+/*table单元格*/
+td{
+	font-family : 宋体;
+	font-size : 9pt;
+	color : a3;
+}
+
+/*使table线变细*/
+table{
+	border-collapse: collapse
+}
+
+/*控制报表线*/
+.table1 {
+	BORDER-top: black 1px solid;
+	BORDER-bottom: black 1px solid;
+	BORDER-left: black 1px solid; 
+	BORDER-right: black 1px solid; 
+}
+
+/*控制frame线*/
+.table2 {
+	BORDER-top: black 1px solid;
+	BORDER-bottom: black 1px solid;
+	BORDER-left: black 1px solid; 
+	BORDER-right: black 1px solid; 
+}
